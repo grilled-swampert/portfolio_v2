@@ -43,19 +43,19 @@ const ContactLayout = () => {
     { 
       icon: Github, 
       title: "GitHub", 
-      href: "https://github.com",
+      href: "https://github.com/grilled-swampert",
       label: "View repositories"
     },
     { 
       icon: Linkedin, 
       title: "LinkedIn", 
-      href: "https://linkedin.com",
+      href: "https://www.linkedin.com/in/swapnil-ranadive-65b260342/",
       label: "Connect professionally"
     },
     { 
       icon: FileText, 
       title: "Resume", 
-      href: "#",
+      href: "https://drive.google.com/file/d/1PYeu5RQ7j1iIo1yBSMnffvjR8B-DtpG-/view?usp=sharing",
       label: "Download PDF"
     },
   ]

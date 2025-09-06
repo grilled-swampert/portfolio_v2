@@ -129,8 +129,8 @@ const ExperienceLayout = () => {
                       View on GitHub
                     </a>
                   )}
-                  <div className="flex justify-center align-middle w-full">
-                    <NextButton text="LEARN MORE" />
+                  <div className="flex justify-center align-middle w-full mt-8">
+                    <NextButton text="LEARN MORE " />
                   </div>
                 </div>
               </div>

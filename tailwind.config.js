@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        zentry: ['"YourFontName"', "sans-serif"],
+        zentry: ["IBM Plex Mono", "monospace"],
         poppins: ["Poppins", "sans-serif"],
       },
     },

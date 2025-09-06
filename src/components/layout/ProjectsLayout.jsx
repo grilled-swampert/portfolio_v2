@@ -60,9 +60,11 @@ export const BentoCard = ({ src, title, description, isComingSoon }) => {
     <div className="relative size-full">
       <div className="relative z-10 flex size-full flex-col justify-between p-5 text-black">
         <div>
-          <h1 className="bento-title text-xs font-light special-font">{title}</h1>
+          <h1 className="bento-title font-medium special-font">
+            {title}
+          </h1>
           {description && (
-            <p className="mt-3 max-w-64 text-xs md:text-base">{description}</p>
+            <p className="mt-3 font-poppins font-normal max-w-64 text-base md:text-lg">{description}</p>
           )}
         </div>
 
@@ -94,24 +96,15 @@ const ProjectsLayout = () => (
   <section className="bg-gradient-to-b from-black to-gray-800 pb-52">
     <div className="container mx-auto px-3 md:px-10">
       <div className="px-5 py-32">
-        <p className="font-circular-web text-lg text-blue-50">
-          Into the Metagame Layer
-        </p>
-        <p className="max-w-md font-circular-web text-lg text-blue-50 opacity-50">
-          Immerse yourself in a rich and ever-expanding universe where a vibrant
-          array of products converge into an interconnected overlay experience
-          on your world.
+        <p className="text-5xl md:text-6xl font-light tracking-tight text-white mb-5 pt-[10rem] flex justify-center">
+          PROJECTS
         </p>
       </div>
-      <div className="grid h-[90vh] w-full grid-cols-2 grid-rows-2 gap-7">
+      <div className="grid h-[90vh] w-full grid-cols-2 grid-rows-2 gap-7 font-zentry">
         <BentoTilt className="bg-white bento-tilt_1 row-span-1 md:col-span-1 md:row-span-1">
           <BentoCard
             src="videos/feature-2.mp4"
-            title={
-              <>
-                Crypto ETL Pipeline
-              </>
-            }
+            title={<>Crypto ETL Pipeline</>}
             description="An anime and gaming-inspired NFT collection - the IP primed for expansion."
             isComingSoon
           />
@@ -120,11 +113,7 @@ const ProjectsLayout = () => (
         <BentoTilt className="bg-white bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0">
           <BentoCard
             src="videos/feature-3.mp4"
-            title={
-              <>
-                E-Commerce Microservices
-              </>
-            }
+            title={<>E-Commerce Microservices</>}
             description="A gamified social hub, adding a new dimension of play to social interaction for Web3 communities."
             isComingSoon
           />
@@ -133,19 +122,15 @@ const ProjectsLayout = () => (
         <BentoTilt className="bg-white bento-tilt_1 me-14 md:col-span-1 md:me-0">
           <BentoCard
             src="videos/feature-4.mp4"
-            title={
-              <>
-                Slateboard
-              </>
-            }
+            title={<>Slateboard</>}
             description="A cross-world AI Agent - elevating your gameplay to be more fun and productive."
             isComingSoon
           />
         </BentoTilt>
 
         <BentoTilt className="bg-white bento-tilt_2">
-          <div className="flex size-full flex-col justify-between bg-teal-900 p-5">
-            <h1 className="bento-title special-font max-w-64 text-black">
+          <div className="flex size-full flex-col justify-between bg-black p-5 border-white border-4">
+            <h1 className="bento-title special-font max-w-64 text-white">
               Other Projects.
             </h1>
 

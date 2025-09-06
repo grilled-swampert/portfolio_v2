@@ -100,7 +100,7 @@ body {
   }
 
   .bento-title {
-    @apply uppercase md:text-3xl text-2xl font-black font-zentry;
+    @apply uppercase md:text-4xl text-3xl font-black font-zentry;
   }
 
   .story-img-container {
