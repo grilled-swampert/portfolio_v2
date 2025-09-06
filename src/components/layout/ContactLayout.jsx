@@ -28,19 +28,13 @@ const ContactLayout = () => {
     { 
       icon: Mail, 
       title: "Email", 
-      value: "hello@example.com",
-      href: "mailto:hello@example.com"
-    },
-    { 
-      icon: Phone, 
-      title: "Phone", 
-      value: "+1 (555) 123-4567",
-      href: "tel:+15551234567"
+      value: "crispy.swap@gmail.com",
+      href: "mailto:crispy.swap@gmail.com"
     },
     { 
       icon: MapPin, 
       title: "Location", 
-      value: "Available Worldwide",
+      value: "The Nether",
       href: null
     },
   ]
@@ -69,42 +63,39 @@ const ContactLayout = () => {
   return (
     <div className="min-h-screen bg-white text-black">
       <div className="max-w-6xl mx-auto px-6 py-16">
-        {/* Header */}
         <div className="text-center mb-20">
           <h1 className="text-5xl md:text-6xl font-light mb-6 tracking-tight">
             Get in Touch
           </h1>
           <div className="w-16 h-px bg-black mx-auto mb-8"></div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Im always open to discussing new opportunities and interesting projects.
+            Im always open to discussing new opportunities and interesting ideas.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16">
-          {/* Contact Information */}
           <div className="space-y-12">
-            {/* Contact Methods */}
             <div>
               <h2 className="text-2xl font-light mb-8 tracking-tight">Contact Information</h2>
               <div className="space-y-6">
                 {contactMethods.map((method, index) => (
                   <div key={index} className="flex items-center space-x-4">
                     <div className="w-10 h-10 border border-black flex items-center justify-center">
-                      <method.icon size={18} />
+                      <method.icon size={16} />
                     </div>
                     <div>
-                      <p className="font-medium text-sm uppercase tracking-wider text-gray-600 mb-1">
+                      <p className="font-normal text-sm uppercase tracking-wider text-gray-600 ">
                         {method.title}
                       </p>
                       {method.href ? (
                         <a 
                           href={method.href}
-                          className="text-black hover:text-gray-600 transition-colors duration-200"
+                          className="text-black text-2xl hover:text-gray-600 transition-colors duration-200"
                         >
                           {method.value}
                         </a>
                       ) : (
-                        <p className="text-black">{method.value}</p>
+                        <p className="text-black text-2xl">{method.value}</p>
                       )}
                     </div>
                   </div>
@@ -112,7 +103,6 @@ const ContactLayout = () => {
               </div>
             </div>
 
-            {/* Social Links */}
             <div>
               <h2 className="text-2xl font-light mb-8 tracking-tight">Connect</h2>
               <div className="space-y-4">
@@ -125,7 +115,7 @@ const ContactLayout = () => {
                     <div className="flex items-center space-x-4">
                       <link.icon size={20} className="group-hover:text-gray-600 transition-colors duration-200" />
                       <div>
-                        <p className="font-medium">{link.title}</p>
+                        <p className="font-medium text-xl">{link.title}</p>
                         <p className="text-sm text-gray-600">{link.label}</p>
                       </div>
                     </div>
@@ -138,7 +128,6 @@ const ContactLayout = () => {
             </div>
           </div>
 
-          {/* Contact Form */}
           <div>
             <h2 className="text-2xl font-light mb-8 tracking-tight">Send a Message</h2>
             
@@ -152,7 +141,7 @@ const ContactLayout = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full px-0 py-3 border-0 border-b border-gray-300 focus:border-black focus:outline-none transition-colors duration-200 bg-transparent"
+                  className="w-full px-0 py-3 text-xl border-0 border-b border-gray-300 focus:border-black focus:outline-none transition-colors duration-200 bg-transparent"
                   placeholder="Your full name"
                   required
                 />
@@ -167,7 +156,7 @@ const ContactLayout = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full px-0 py-3 border-0 border-b border-gray-300 focus:border-black focus:outline-none transition-colors duration-200 bg-transparent"
+                  className="w-full px-0 py-3 text-xl border-0 border-b border-gray-300 focus:border-black focus:outline-none transition-colors duration-200 bg-transparent"
                   placeholder="your.email@example.com"
                   required
                 />
@@ -181,8 +170,8 @@ const ContactLayout = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
-                  rows={4}
-                  className="w-full px-0 py-3 border-0 border-b border-gray-300 focus:border-black focus:outline-none transition-colors duration-200 bg-transparent resize-none"
+                  rows={5}
+                  className="w-full px-0 py-3 text-xl border-0 border-b border-gray-300 focus:border-black focus:outline-none transition-colors duration-200 bg-transparent resize-none"
                   placeholder="Tell me about your project..."
                   required
                 />
@@ -192,7 +181,7 @@ const ContactLayout = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-black text-white py-4 px-6 hover:bg-gray-800 transition-colors duration-200 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-black text-xl text-white py-4 px-6 hover:bg-gray-800 transition-colors duration-200 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <>
@@ -218,7 +207,7 @@ const ContactLayout = () => {
         </div>
 
         {/* Footer */}
-        <div className="mt-20 pt-8 border-t border-gray-200 text-center">
+        <div className="mt-10 pt-8 border-t border-gray-200 text-center">
           <p className="text-sm text-gray-500">
             Available for freelance work and full-time opportunities
           </p>
