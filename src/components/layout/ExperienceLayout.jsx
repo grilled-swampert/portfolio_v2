@@ -5,8 +5,8 @@ import NextButton from "../ui/NextButton";
 
 const experiences = [
   {
-    name: "GNSS Map Matching and Road Identification",
-    stack: "Python, OSMR, React, GIS",
+    name: "Citius Cloud LLP",
+    stack: "Kubernetes, ReactJS, PostresSQL, Digital Ocean, NodeJS",
     description:
       "A tool that processes GNSS data to accurately match and identify road networks for improved navigation.",
     title: "DevOps Engineer Intern",
@@ -16,8 +16,8 @@ const experiences = [
     time: "May 2025 - Present",
   },
   {
-    name: "Financial Investment Report Generator",
-    stack: "Python, OpenAI API, Flask, React",
+    name: "FOSSEE, IIT Bombay",
+    stack: "Python, Blender",
     description:
       "A web application that leverages AI to generate detailed financial investment reports and actionable insights.",
     title: "Summer Fellowship",

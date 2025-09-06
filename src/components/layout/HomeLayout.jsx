@@ -5,7 +5,7 @@ import DownButton from "../ui/DownButton";
 
 const HomeLayout = () => {
   return (
-    <div className="flex justify-center items-center w-full h-screen bg-gradient-to-b from-gray-400 to-white">
+    <div className="flex justify-center items-center w-full h-full bg-gradient-to-b from-gray-400 to-white">
       <div
         className="relative flex justify-start flex-col items-center w-11/12 h-full mt-36 gap-10 rounded-3xl bg-gradient-to-b from-black to-gray-800 shadow-2xl"
         style={{
@@ -34,7 +34,7 @@ const HomeLayout = () => {
         <div className="flex justify-between items-center w-full px-8 font-poppins">
           <div>
             <div className="text-5xl tracking-tighter mb-5">crisplettuce</div>
-            <div className="text-2xl font-light italic">Swapnil Ranadive</div>
+            <div className="text-2xl font-light text-gray-600 italic">Swapnil Ranadive</div>
           </div>
           <div>
             <img
@@ -45,7 +45,11 @@ const HomeLayout = () => {
           </div>
         </div>
         <div className="font-poppins w-full px-8 mt-4 flex flex-row justify-between">
-          <div className="flex">hello</div>
+          <div className="flex flex-col gap-2">
+            <div>hello, i actually have no idea what to put here.</div>
+            {/* <div>honestly, dont think i wanna live to be honest.</div>
+            <div>every road leads to me killing myself.</div> */}
+          </div>
           <div className="flex-1 flex flex-col justify-center items-end space-y-6">
             <nav className="text-right space-y-4">
               {[
