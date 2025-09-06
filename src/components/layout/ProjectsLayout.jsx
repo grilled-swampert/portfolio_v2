@@ -60,7 +60,7 @@ export const BentoCard = ({ src, title, description, isComingSoon }) => {
     <div className="relative size-full">
       <div className="relative z-10 flex size-full flex-col justify-between p-5 text-black">
         <div>
-          <h1 className="bento-title text-xs special-font">{title}</h1>
+          <h1 className="bento-title text-xs font-light special-font">{title}</h1>
           {description && (
             <p className="mt-3 max-w-64 text-xs md:text-base">{description}</p>
           )}
@@ -91,7 +91,7 @@ export const BentoCard = ({ src, title, description, isComingSoon }) => {
 };
 
 const ProjectsLayout = () => (
-  <section className="bg-black pb-52">
+  <section className="bg-gradient-to-b from-black to-gray-800 pb-52">
     <div className="container mx-auto px-3 md:px-10">
       <div className="px-5 py-32">
         <p className="font-circular-web text-lg text-blue-50">
