@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         zentry: ['"YourFontName"', "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
       },
     },
   },

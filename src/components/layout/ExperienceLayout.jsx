@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Lenis from "@studio-freight/lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import "remixicon/fonts/remixicon.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -20,6 +20,34 @@ const cards = [
     img: "assets/images/card2.png",
     title: "The Dogma",
     desc: "Enshrining the principles of conformity and reinforcing the status quo.",
+    className: "card2",
+  },
+  {
+    id: 3,
+    img: "assets/images/card3.png",
+    title: "The Architects",
+    desc: "The elusive entities, lacking human form, operate in the shadows.",
+    className: "card1",
+  },
+  {
+    id: 4,
+    img: "assets/images/card4.png",
+    title: "The Wasteland",
+    desc: "This overlooked realm, a consequence of algorithmic judgments.",
+    className: "card2",
+  },
+  {
+    id: 5,
+    img: "assets/images/card5.png",
+    title: "The Narrative",
+    desc: "The collective story sculpted by the architects.",
+    className: "card1",
+  },
+  {
+    id: 6,
+    img: "assets/images/card6.png",
+    title: "The Opulence",
+    desc: "The cognitive elite's wealth in the algorithmic society.",
     className: "card2",
   },
 ];
@@ -56,7 +84,7 @@ const ExperienceLayout = () => {
   }, []);
 
   return (
-    <div className="maincontainer bg-black container-fluid">
+    <div className="maincontainer container-fluid">
       <main className="px-md-4 px-1 pt-md-5 pb-0">
         {/* Section 1 */}
         <section className="mainsec1 w-100 pt-md-5 mt-md-5">
