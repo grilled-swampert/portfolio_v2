@@ -1,13 +1,15 @@
 import React from "react";
-import Navbar from "./components/layout/Navbar";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+
 
 const App = () => {
   return (
     <BrowserRouter>
       <div className="h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600 text-white text-4xl">
-        <Navbar />
-
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+        </Routes>
       </div>
     </BrowserRouter>
   );

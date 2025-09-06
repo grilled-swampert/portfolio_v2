@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-const HomeLayout = () => {
+const ContactLayout = () => {
   return (
     <div className="flex justify-center items-center w-full h-full bg-blue-300 text-4xl font-bold">
-      Home
+      Contact
     </div>
-  );
-};
+  )
+}
 
-export default HomeLayout;
+export default ContactLayout
