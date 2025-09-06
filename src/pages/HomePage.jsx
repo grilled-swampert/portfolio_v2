@@ -1,9 +1,9 @@
-import React from 'react';
-import HomeLayout from '../components/layout/HomeLayout';
-import ExperienceLayout from '../components/layout/ExperienceLayout';
-import ProjectsLayout from '../components/layout/ProjectsLayout';
-import ContactLayout from '../components/layout/ContactLayout';
-import Navbar from '../components/layout/Navbar';
+import React from "react";
+import HomeLayout from "../components/layout/HomeLayout";
+import ExperienceLayout from "../components/layout/ExperienceLayout";
+import ProjectsLayout from "../components/layout/ProjectsLayout";
+import ContactLayout from "../components/layout/ContactLayout";
+import Navbar from "../components/layout/Navbar";
 
 const HomePage = () => {
   return (
@@ -12,12 +12,8 @@ const HomePage = () => {
       <section className="h-screen w-full">
         <HomeLayout />
       </section>
-      <section className="h-screen w-full">
-        <ExperienceLayout />
-      </section>
-      <section className="h-screen w-full">
-        <ProjectsLayout />
-      </section>
+      <ExperienceLayout />
+      <ProjectsLayout />
       <section className="h-screen w-full">
         <ContactLayout />
       </section>
