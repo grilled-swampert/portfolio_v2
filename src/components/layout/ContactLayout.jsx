@@ -76,7 +76,7 @@ const ContactLayout = () => {
           </h1>
           <div className="w-16 h-px bg-black mx-auto mb-8"></div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            I'm always open to discussing new opportunities and interesting projects.
+            Im always open to discussing new opportunities and interesting projects.
           </p>
         </div>
 
