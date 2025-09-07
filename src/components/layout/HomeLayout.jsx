@@ -148,7 +148,7 @@ const HomeLayout = () => {
           </div>
         </div>
 
-        <div className="font-poppins w-full px-8 mt-4 flex flex-col lg:flex-row justify-between gap-6 lg:gap-0">
+        <div className="font-poppins w-full md:mb-16 px-8 mt-4 flex flex-col lg:flex-row justify-between gap-6 lg:gap-0">
           <div className="flex flex-col gap-5 sm:gap-4 md:gap-7 text-center lg:text-left">
             <div className="text-block text-block text-sm sm:text-4xl">
               hello, i actually have no idea what to put here.
@@ -167,8 +167,6 @@ const HomeLayout = () => {
               className="md:w-auto w-full text-center md:text-right space-y-4"
             >
               {[
-                { name: "Experiences", href: "/experience" },
-                { name: "Projects", href: "/projects" },
                 {
                   name: "Resume",
                   href: "https://drive.google.com/file/d/1PYeu5RQ7j1iIo1yBSMnffvjR8B-DtpG-/view?usp=sharing",
