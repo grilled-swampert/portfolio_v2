@@ -1,7 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Menu, X, Home, User, Settings, Mail, Info } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -11,8 +13,8 @@ const Navbar = () => {
   const menuItemsRef = useRef([]);
 
   const menuItems = [
-    { icon: Home, label: "Home", href: "#home" },
-    { icon: User, label: "Experience", href: "#about" },
+    { icon: Home, label: "Home", href: "/" },
+    { icon: User, label: "Experience", href: "/experience" },
     { icon: Settings, label: "Projects", href: "#services" },
     { icon: Info, label: "Contact", href: "#info" },
   ];
@@ -25,17 +27,18 @@ const Navbar = () => {
   useEffect(() => {
     if (isOpen) {
       setIsAnimating(true);
-      
+
       // Show overlay immediately
       if (overlayRef.current) {
         overlayRef.current.style.display = "flex";
         overlayRef.current.style.opacity = "0";
-        
+
         // Force reflow
         overlayRef.current.offsetHeight;
-        
+
         // Animate in
-        overlayRef.current.style.transition = "opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1)";
+        overlayRef.current.style.transition =
+          "opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1)";
         overlayRef.current.style.opacity = "1";
       }
 
@@ -43,8 +46,9 @@ const Navbar = () => {
       if (titleRef.current) {
         titleRef.current.style.transform = "translateY(-50px)";
         titleRef.current.style.opacity = "0";
-        titleRef.current.style.transition = "all 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.3s";
-        
+        titleRef.current.style.transition =
+          "all 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.3s";
+
         setTimeout(() => {
           if (titleRef.current) {
             titleRef.current.style.transform = "translateY(0)";
@@ -59,7 +63,7 @@ const Navbar = () => {
           item.style.transform = "translateY(40px) rotateX(-10deg)";
           item.style.opacity = "0";
           item.style.transition = `all 0.7s cubic-bezier(0.25, 1, 0.5, 1) ${0.4 + index * 0.15}s`;
-          
+
           setTimeout(() => {
             if (item) {
               item.style.transform = "translateY(0) rotateX(0deg)";
@@ -72,7 +76,7 @@ const Navbar = () => {
       setTimeout(() => setIsAnimating(false), 1200);
     } else {
       setIsAnimating(true);
-      
+
       // Animate out menu items
       menuItemsRef.current.forEach((item, index) => {
         if (item) {
@@ -84,16 +88,18 @@ const Navbar = () => {
 
       // Animate out title
       if (titleRef.current) {
-        titleRef.current.style.transition = "all 0.5s cubic-bezier(0.5, 0, 0.75, 0) 0.3s";
+        titleRef.current.style.transition =
+          "all 0.5s cubic-bezier(0.5, 0, 0.75, 0) 0.3s";
         titleRef.current.style.transform = "translateY(-50px)";
         titleRef.current.style.opacity = "0";
       }
 
       // Animate out overlay
       if (overlayRef.current) {
-        overlayRef.current.style.transition = "opacity 0.5s cubic-bezier(0.5, 0, 0.75, 0) 0.3s";
+        overlayRef.current.style.transition =
+          "opacity 0.5s cubic-bezier(0.5, 0, 0.75, 0) 0.3s";
         overlayRef.current.style.opacity = "0";
-        
+
         setTimeout(() => {
           if (overlayRef.current) {
             overlayRef.current.style.display = "none";
@@ -106,8 +112,17 @@ const Navbar = () => {
 
   const handleMenuItemClick = (href) => {
     setIsOpen(false);
-    const target = document.querySelector(href);
-    if (target) target.scrollIntoView({ behavior: "smooth" });
+
+    if (href.startsWith("#")) {
+      // Smooth scroll for in-page anchors
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // Navigate using React Router
+      navigate(href);
+    }
   };
 
   return (
@@ -128,9 +143,9 @@ const Navbar = () => {
       <div
         ref={overlayRef}
         className="fixed inset-0 z-40 font-poppins"
-        style={{ 
+        style={{
           display: "none",
-          opacity: "0"
+          opacity: "0",
         }}
       >
         {/* Background */}
@@ -175,7 +190,6 @@ const Navbar = () => {
           </nav>
         </div>
       </div>
-
     </>
   );
 };

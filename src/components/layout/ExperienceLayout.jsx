@@ -2,16 +2,18 @@
 
 import React, { useEffect } from "react";
 import NextButton from "../ui/NextButton";
+import Experience01Picture from "../../assets/exp01.png"
+import Experience02Picture from "../../assets/exp02.png"
 
 const experiences = [
   {
     name: "Citius Cloud LLP",
-    stack: "Kubernetes, ReactJS, PostresSQL, Digital Ocean, NodeJS",
+    stack: "Kubernetes, ReactJS, PostresSQL, Digital Ocean, Vault, Cypress, Openshift",
     description:
       "A tool that processes GNSS data to accurately match and identify road networks for improved navigation.",
     title: "DevOps Engineer Intern",
     githubLink: "",
-    image: "images/coming-soon.png",
+    image: Experience02Picture,
     status: "",
     time: "May 2025 - Present",
   },
@@ -22,7 +24,7 @@ const experiences = [
       "A web application that leverages AI to generate detailed financial investment reports and actionable insights.",
     title: "Summer Fellowship",
     githubLink: "",
-    image: "images/coming-soon.png",
+    image: Experience01Picture,
     status: "",
     time: "May 2025 - Present",
   },
@@ -68,7 +70,7 @@ const ExperienceLayout = () => {
                   <img
                     src={experience.image}
                     alt={experience.name}
-                    className="p-5 md:h-[300px] lg:h-[400px] rounded-xl shadow-lg mb-6 md:mb-0"
+                    className="p-5 mr-10 md:h-[300px] lg:h-[400px] rounded-[100px] opacity-30 shadow-lg mb-6 md:mb-0 hover:opacity-50 duration-500"
                   />
                 )}
 
