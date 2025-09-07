@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const ProjectsList = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const projects = [
     {
+      id: "crypto-etl-pipeline",
       title: "Crypto ETL Pipeline",
       category: "Data Engineering",
       year: null,
@@ -20,6 +21,7 @@ const ProjectsList = () => {
       demo: null,
     },
     {
+      id: "ecommerce-microservices",
       title: "E-commerce Microservices Platform",
       category: "Backend / DevOps",
       year: null,
@@ -33,6 +35,7 @@ const ProjectsList = () => {
       demo: null,
     },
     {
+      id: "slateboard",
       title: "Slateboard – Real-Time Whiteboard",
       category: "Realtime Collaboration Tool",
       year: null,
@@ -47,8 +50,35 @@ const ProjectsList = () => {
     },
   ];
 
+  // Handle hash-based navigation
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.substring(1);
+      if (hash) {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          // Optionally expand the project card
+          const projectIndex = projects.findIndex(project => project.id === hash);
+          if (projectIndex !== -1) {
+            setHoveredIndex(projectIndex);
+            // Auto-collapse after 3 seconds
+            setTimeout(() => setHoveredIndex(null), 3000);
+          }
+        }
+      }
+    };
+
+    // Handle initial load
+    handleHashChange();
+
+    // Handle hash changes
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
   return (
-    <div className="min-h-scree text-white py-20">
+    <div className="min-h-screen text-white py-20">
       <div className="max-w-6xl mx-auto px-6">
         <div className="relative">
           {/* Background stack effect */}
@@ -70,7 +100,8 @@ const ProjectsList = () => {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="relative w-full group cursor-pointer"
+                id={project.id} // Add ID for hash navigation
+                className="relative w-full group cursor-pointer scroll-mt-20" // Add scroll-mt for better positioning
                 style={{
                   zIndex: projects.length - index,
                 }}
@@ -109,7 +140,7 @@ const ProjectsList = () => {
                     }
                   `}
                   style={{
-                    height: hoveredIndex === index ? "320px" : "140px",
+                    height: hoveredIndex === index ? "350px" : "140px",
                   }}
                 >
                   {/* Header */}
@@ -197,6 +228,8 @@ const ProjectsList = () => {
                           </a>
                         )}
                       </div>
+
+                      <div className="text-lg py-5">Documentation will be added soon.</div>
                     </div>
                   </div>
                 </div>

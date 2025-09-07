@@ -4,7 +4,7 @@ import ProjectsList from "./ProjectsList";
 
 const ProjectsLanding = () => {
   return (
-    <div className="flex flex-col justify-center items-center w-full bg-gradient-to-b from-rose-900 to-gray-800">
+    <div className="flex flex-col justify-center items-center w-full bg-gradient-to-b from-black to-gray-800">
       <div
         className="relative flex justify-start flex-col align-middle items-center w-11/12 gap-10 rounded-3xl bg-gradient-to-b mt-24 from-black to-gray-800 shadow-2xl"
         style={{

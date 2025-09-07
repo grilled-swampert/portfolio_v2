@@ -28,10 +28,10 @@ export const BentoTilt = ({ src, children, className = "" }) => {
   };
 
   const handleRedirect = () => {
-    console.log("src:", src)
+    console.log("src:", src);
     navigate(src);
-    + window.scrollTo(0, 0);
-  }
+    window.scrollTo(0, 0);
+  };
 
   return (
     <div
@@ -47,10 +47,19 @@ export const BentoTilt = ({ src, children, className = "" }) => {
   );
 };
 
-export const BentoCard = ({ src, title, description, isComingSoon }) => {
+export const BentoCard = ({
+  src,
+  title,
+  description,
+  isComingSoon,
+  projectId,
+  githubLink,
+  demoLink,
+}) => {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [hoverOpacity, setHoverOpacity] = useState(0);
   const hoverButtonRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleMouseMove = (event) => {
     if (!hoverButtonRef.current) return;
@@ -65,37 +74,81 @@ export const BentoCard = ({ src, title, description, isComingSoon }) => {
   const handleMouseEnter = () => setHoverOpacity(1);
   const handleMouseLeave = () => setHoverOpacity(0);
 
+  const handleCheckProject = (e) => {
+    e.stopPropagation();
+    if (projectId) {
+      navigate(`/projects#${projectId}`);
+    }
+  };
+
+  const handleLinkClick = (e, url) => {
+    e.stopPropagation();
+    if (url) {
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+  };
+
   return (
     <div className="relative size-full">
       <div className="relative z-10 flex size-full flex-col justify-between p-5 text-black">
         <div>
-          <h1 className="bento-title font-medium special-font">
-            {title}
-          </h1>
+          <h1 className="bento-title font-medium special-font">{title}</h1>
           {description && (
-            <p className="mt-3 font-poppins font-normal max-w-64 text-base md:text-lg">{description}</p>
+            <p className="mt-3 font-poppins font-normal max-w-64 text-base md:text-lg">
+              {description}
+            </p>
           )}
         </div>
 
-        {isComingSoon && (
-          <div
-            ref={hoverButtonRef}
-            onMouseMove={handleMouseMove}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            className="border-hsla relative flex w-fit cursor-pointer items-center gap-1 overflow-hidden rounded-full bg-black px-5 py-2 text-xs uppercase text-white/20"
-          >
+        <div className="flex flex-col gap-3">
+          {/* GitHub and Demo Links */}
+          {(githubLink || demoLink) && (
+            <div className="flex gap-2">
+              {(githubLink || demoLink) && (
+                <div className="flex gap-2">
+                  {githubLink && (
+                    <button
+                      onClick={(e) => handleLinkClick(e, githubLink)}
+                      className="px-2 py-1 text-base border border-black text-black bg-white hover:text-white hover:bg-black duration-500 hover:border-gray-400 transition-colors"
+                    >
+                      GitHub
+                    </button>
+                  )}
+                  {demoLink && (
+                    <button
+                      onClick={(e) => handleLinkClick(e, demoLink)}
+                      className="px-2 py-1 text-base border border-black text-black bg-white hover:text-white hover:bg-black duration-500 transition-colors"
+                    >
+                      Demo
+                    </button>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Check Project Button */}
+          {isComingSoon && (
             <div
-              className="pointer-events-none absolute -inset-px opacity-0 transition duration-300"
-              style={{
-                opacity: hoverOpacity,
-                background: `radial-gradient(100px circle at ${cursorPosition.x}px ${cursorPosition.y}px, #656fe288, #00000026)`,
-              }}
-            />
-            <TiLocationArrow className="relative z-20 text-white" />
-            <p className="relative z-20 text-white">CHECK PROJECT</p>
-          </div>
-        )}
+              ref={hoverButtonRef}
+              onMouseMove={handleMouseMove}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              onClick={handleCheckProject}
+              className="border-hsla relative flex w-fit cursor-pointer items-center gap-1 overflow-hidden rounded-full bg-black px-5 py-2 text-xs uppercase text-white/20"
+            >
+              <div
+                className="pointer-events-none absolute -inset-px opacity-0 transition duration-300"
+                style={{
+                  opacity: hoverOpacity,
+                  background: `radial-gradient(100px circle at ${cursorPosition.x}px ${cursorPosition.y}px, #656fe288, #00000026)`,
+                }}
+              />
+              <TiLocationArrow className="relative z-20 text-white" />
+              <p className="relative z-20 text-white">CHECK DOCUMENTATION</p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
@@ -114,8 +167,11 @@ const ProjectsLayout = () => (
           <BentoCard
             src="videos/feature-2.mp4"
             title={<>Crypto ETL Pipeline</>}
-            description="An anime and gaming-inspired NFT collection - the IP primed for expansion."
+            description="Automated crypto market data ingestion and transformation with Airflow and PySpark for scalable analytics."
             isComingSoon
+            projectId="crypto-etl-pipeline"
+            githubLink="https://github.com/grilled-swampert/crypto-data-pipeline"
+            demoLink=""
           />
         </BentoTilt>
 
@@ -123,8 +179,11 @@ const ProjectsLayout = () => (
           <BentoCard
             src="videos/feature-3.mp4"
             title={<>E-Commerce Microservices</>}
-            description="A gamified social hub, adding a new dimension of play to social interaction for Web3 communities."
+            description="Cloud-native microservices platform with Kubernetes, Docker, and CI/CD pipelines for scalable deployments."
             isComingSoon
+            projectId="ecommerce-microservices"
+            githubLink="https://github.com/grilled-swampert/ecommerce-microservices"
+            demoLink=""
           />
         </BentoTilt>
 
@@ -132,17 +191,19 @@ const ProjectsLayout = () => (
           <BentoCard
             src="videos/feature-4.mp4"
             title={<>Slateboard</>}
-            description="A cross-world AI Agent - elevating your gameplay to be more fun and productive."
+            description="Real-time collaborative whiteboard built with WebSockets, enabling seamless multi-user drawing sessions."
             isComingSoon
+            projectId="slateboard"
+            githubLink="https://github.com/grilled-swampert/slate-board"
+            demoLink="https://slate-board-sigma.vercel.app/"
           />
         </BentoTilt>
 
-        <BentoTilt className="bg-white bento-tilt_2" src={"/projects"} >
+        <BentoTilt className="bg-white bento-tilt_2" src={"/projects"}>
           <div className="flex size-full flex-col justify-between bg-black p-5 border-white border-4">
             <h1 className="bento-title special-font max-w-64 text-white">
               Other Projects.
             </h1>
-
             <TiLocationArrow className="m-16 scale-[5] self-end" />
           </div>
         </BentoTilt>
