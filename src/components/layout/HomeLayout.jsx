@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import RollingPanda from "../../assets/panda-rolling.gif";
 import DownButton from "../ui/DownButton";
 import gsap from "gsap";
+import { Link } from "react-router-dom";
 
 const HomeLayout = () => {
   const containerRef = useRef(null);
@@ -131,7 +132,9 @@ const HomeLayout = () => {
           className="flex justify-between items-center w-full px-8 mt-6 font-poppins flex-col md:flex-row"
         >
           <div>
-            <div className="text-3xl sm:text-4xl md:text-5xl tracking-tighter mb-3 sm:mb-5">crisplettuce</div>
+            <div className="text-3xl sm:text-4xl md:text-5xl tracking-tighter mb-3 sm:mb-5">
+              crisplettuce
+            </div>
             <div className="text-lg sm:text-xl md:text-2xl font-light text-gray-600 italic">
               Swapnil Ranadive
             </div>
@@ -159,7 +162,10 @@ const HomeLayout = () => {
           </div>
 
           <div className="flex-1 flex flex-col justify-center items-end space-y-6">
-            <nav ref={navRef} className="w-full text-center md:text-right space-y-4">
+            <nav
+              ref={navRef}
+              className="w-full text-center md:text-right space-y-4"
+            >
               {[
                 { name: "Experiences", href: "/experience" },
                 { name: "Projects", href: "/projects" },
@@ -172,22 +178,26 @@ const HomeLayout = () => {
                   name: "LinkedIn",
                   href: "https://www.linkedin.com/in/swapnil-ranadive-crispy/",
                 },
-              ].map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  target={item.href.startsWith("http") ? "_blank" : "_self"}
-                  rel={
-                    item.href.startsWith("http")
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
-                >
-                  <div className="text-lg text-gray-400 hover:bg-white hover:text-black transition-colors cursor-pointer relative after:content-[''] after:block px-3 py-1 rounded tracking-wide mb-4">
-                    {item.name}
-                  </div>
-                </a>
-              ))}
+              ].map((item) =>
+                item.href.startsWith("http") ? (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <div className="text-lg text-gray-400 hover:bg-white hover:text-black transition-colors cursor-pointer relative after:content-[''] after:block px-3 py-1 rounded tracking-wide mb-4">
+                      {item.name}
+                    </div>
+                  </a>
+                ) : (
+                  <Link key={item.name} to={item.href}>
+                    <div className="text-lg text-gray-400 hover:bg-white hover:text-black transition-colors cursor-pointer relative after:content-[''] after:block px-3 py-1 rounded tracking-wide mb-4">
+                      {item.name}
+                    </div>
+                  </Link>
+                )
+              )}
             </nav>
           </div>
         </div>
