@@ -94,7 +94,7 @@ export const BentoCard = ({
         <div>
           <h1 className="bento-title font-medium special-font">{title}</h1>
           {description && (
-            <p className="mt-3 font-poppins font-normal max-w-64 text-base md:text-lg">
+            <p className="mt-3 mb-5 font-poppins font-normal max-w-64 text-base md:text-lg">
               {description}
             </p>
           )}
