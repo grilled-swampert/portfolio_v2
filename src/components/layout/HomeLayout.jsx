@@ -164,7 +164,7 @@ const HomeLayout = () => {
           <div className="flex-1 flex flex-col justify-center items-end space-y-6">
             <nav
               ref={navRef}
-              className="w-full text-center md:text-right space-y-4"
+              className="md:w-auto w-full text-center md:text-right space-y-4"
             >
               {[
                 { name: "Experiences", href: "/experience" },
