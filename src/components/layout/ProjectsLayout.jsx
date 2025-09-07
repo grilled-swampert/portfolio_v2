@@ -199,7 +199,7 @@ const ProjectsLayout = () => (
           />
         </BentoTilt>
 
-        <BentoTilt className="bg-white bento-tilt_1 row-span-1 col-span-2" src={"/projects"}>
+        <BentoTilt className="bg-white bento-tilt_1 row-span-1 col-span-2 md:col-span-1" src={"/projects"}>
           <div className="flex size-full flex-col justify-between bg-black p-5 border-white border-4">
             <h1 className="bento-title special-font max-w-64 text-white">
               Other Projects.
