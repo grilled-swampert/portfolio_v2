@@ -79,7 +79,7 @@ const ContactLayout = () => {
     {
       icon: Linkedin,
       title: "LinkedIn",
-      href: "https://www.linkedin.com/in/swapnil-ranadive-65b260342/",
+      href: "https://www.linkedin.com/in/swapnil-ranadive-crispy/",
       label: "Connect professionally",
     },
     {

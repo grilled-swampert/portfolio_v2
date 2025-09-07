@@ -57,9 +57,11 @@ const ProjectsList = () => {
       if (hash) {
         const element = document.getElementById(hash);
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          element.scrollIntoView({ behavior: "smooth", block: "center" });
           // Optionally expand the project card
-          const projectIndex = projects.findIndex(project => project.id === hash);
+          const projectIndex = projects.findIndex(
+            (project) => project.id === hash
+          );
           if (projectIndex !== -1) {
             setHoveredIndex(projectIndex);
             // Auto-collapse after 3 seconds
@@ -73,8 +75,8 @@ const ProjectsList = () => {
     handleHashChange();
 
     // Handle hash changes
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
   return (
@@ -131,17 +133,16 @@ const ProjectsList = () => {
                 {/* Main card */}
                 <div
                   className={`
-                    relative border-2 border-white rounded-lg p-6 
-                    transition-all duration-1000 ease-out
-                    ${
-                      hoveredIndex === index
-                        ? "shadow-2xl bg-black border-slate-600 duration-1000"
-                        : "shadow-lg hover:shadow-xl"
-                    }
-                  `}
-                  style={{
-                    height: hoveredIndex === index ? "350px" : "140px",
-                  }}
+                              relative border-2 border-white rounded-lg p-4 sm:p-5 md:p-6
+                              transition-all duration-500 ease-out
+                              ${
+                                hoveredIndex === index
+                                  ? "shadow-2xl bg-black border-slate-600"
+                                  : "shadow-lg hover:shadow-xl"
+                              }
+                              ${hoveredIndex === index ? "h-[500px] sm:h-[320px] md:h-[360px]" : "h-[170px] sm:h-[150px] md:h-[160px]"}
+                            `}
+                  style={{ maxWidth: "100%" }}
                 >
                   {/* Header */}
                   <div className="flex items-start justify-between mb-3">
@@ -229,7 +230,9 @@ const ProjectsList = () => {
                         )}
                       </div>
 
-                      <div className="text-lg py-5">Documentation will be added soon.</div>
+                      <div className="text-lg py-5">
+                        Documentation will be added soon.
+                      </div>
                     </div>
                   </div>
                 </div>

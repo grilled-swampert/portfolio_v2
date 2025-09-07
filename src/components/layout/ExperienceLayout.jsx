@@ -59,7 +59,7 @@ const ExperienceLayout = () => {
 
       <div className="sticky_parent h-[200vh]">
         <div className="sticky top-0 h-screen overflow-hidden">
-          <div className="scroll_section absolute top-0 h-full w-[200vw] will-change-transform flex justify-between items-center px-[9vw]">
+          <div className="scroll_section absolute top-0 h-full w-[200vw] will-change-transform flex justify-between items-center px-[11vw] md:px-[9vw]">
             {experiences.map((experience, index) => (
               <div
                 key={index}
@@ -70,7 +70,7 @@ const ExperienceLayout = () => {
                   <img
                     src={experience.image}
                     alt={experience.name}
-                    className="p-5 mr-10 md:h-[300px] lg:h-[400px] rounded-[100px] opacity-30 shadow-lg mb-6 md:mb-0 hover:opacity-50 duration-500"
+                    className="p-5 md:mr-10 md:h-[300px] lg:h-[400px] rounded-[100px] opacity-30 shadow-lg md:mb-6 hover:opacity-50 duration-500"
                   />
                 )}
 

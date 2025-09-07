@@ -162,7 +162,7 @@ const ProjectsLayout = () => (
           PROJECTS
         </p>
       </div>
-      <div className="grid h-[90vh] w-full grid-cols-2 grid-rows-2 gap-7 font-zentry">
+      <div className="grid md:h-[90vh] w-full grid-cols-2 grid-rows-4 md:grid-rows-2 gap-7 font-zentry">
         <BentoTilt className="bg-white bento-tilt_1 row-span-1 md:col-span-1 md:row-span-1">
           <BentoCard
             src="videos/feature-2.mp4"
@@ -175,7 +175,7 @@ const ProjectsLayout = () => (
           />
         </BentoTilt>
 
-        <BentoTilt className="bg-white bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0">
+        <BentoTilt className="bg-white bento-tilt_1 row-span-1 col-span-2 md:col-span-1 md:ms-0">
           <BentoCard
             src="videos/feature-3.mp4"
             title={<>E-Commerce Microservices</>}
@@ -187,7 +187,7 @@ const ProjectsLayout = () => (
           />
         </BentoTilt>
 
-        <BentoTilt className="bg-white bento-tilt_1 me-14 md:col-span-1 md:me-0">
+        <BentoTilt className="bg-white bento-tilt_1 row-span-1 col-span-2 md:col-span-1 md:me-0">
           <BentoCard
             src="videos/feature-4.mp4"
             title={<>Slateboard</>}
@@ -199,7 +199,7 @@ const ProjectsLayout = () => (
           />
         </BentoTilt>
 
-        <BentoTilt className="bg-white bento-tilt_2" src={"/projects"}>
+        <BentoTilt className="bg-white bento-tilt_1 row-span-1 col-span-2" src={"/projects"}>
           <div className="flex size-full flex-col justify-between bg-black p-5 border-white border-4">
             <h1 className="bento-title special-font max-w-64 text-white">
               Other Projects.

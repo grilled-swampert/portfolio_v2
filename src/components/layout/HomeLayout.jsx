@@ -100,7 +100,7 @@ const HomeLayout = () => {
     <div className="flex justify-center items-center w-full h-full bg-gradient-to-b from-gray-400 to-white">
       <div
         ref={containerRef}
-        className="relative flex justify-start flex-col items-center w-11/12 mt-36 gap-10 rounded-3xl bg-gradient-to-b from-black to-gray-800 shadow-2xl"
+        className="relative flex justify-start flex-col items-center w-11/12 mt-36 gap-10 rounded-3xl bg-gradient-to-b from-black to-gray-800 shadow-2xl sm:mt-36 sm:gap-6"
         style={{
           height: "calc(90vh)",
           boxShadow: "0 20px 60px rgba(0, 0, 0, 0.5)",
@@ -128,11 +128,11 @@ const HomeLayout = () => {
 
         <div
           ref={headerRef}
-          className="flex justify-between items-center w-full px-8 font-poppins"
+          className="flex justify-between items-center w-full px-8 mt-6 font-poppins flex-col md:flex-row"
         >
           <div>
-            <div className="text-5xl tracking-tighter mb-5">crisplettuce</div>
-            <div className="text-2xl font-light text-gray-600 italic">
+            <div className="text-3xl sm:text-4xl md:text-5xl tracking-tighter mb-3 sm:mb-5">crisplettuce</div>
+            <div className="text-lg sm:text-xl md:text-2xl font-light text-gray-600 italic">
               Swapnil Ranadive
             </div>
           </div>
@@ -140,20 +140,20 @@ const HomeLayout = () => {
             <img
               src={RollingPanda}
               alt="Rolling Panda"
-              className="panda-image w-50 h-50 object-contain rounded-full"
+              className="panda-image w-32 h-32 sm:w-40 sm:h-40 md:w-50 md:h-50 object-contain rounded-full mx-auto sm:mx-0"
             />
           </div>
         </div>
 
-        <div className="font-poppins w-full px-8 mt-4 flex flex-row justify-between">
-          <div className="flex flex-col gap-5">
-            <div className="text-block">
+        <div className="font-poppins w-full px-8 mt-4 flex flex-col lg:flex-row justify-between gap-6 lg:gap-0">
+          <div className="flex flex-col gap-5 sm:gap-4 md:gap-7 text-center lg:text-left">
+            <div className="text-block text-block text-sm sm:text-4xl">
               hello, i actually have no idea what to put here.
             </div>
-            <div className="text-block bg-white text-black p-2 opacity-60">
+            <div className="text-block bg-white text-black p-2 opacity-60 text-block text-sm sm:text-4xl">
               still figuring everything out.
             </div>
-            <div className="text-block bg-white text-black p-2 opacity-60">
+            <div className="text-block bg-white text-black p-2 opacity-60 text-block text-sm sm:text-4xl">
               here's the chaos i've been a part of so far.
             </div>
           </div>
@@ -170,7 +170,7 @@ const HomeLayout = () => {
                 { name: "GitHub", href: "https://github.com/grilled-swampert" },
                 {
                   name: "LinkedIn",
-                  href: "https://www.linkedin.com/in/swapnil-ranadive-65b260342/",
+                  href: "https://www.linkedin.com/in/swapnil-ranadive-crispy/",
                 },
               ].map((item) => (
                 <a
