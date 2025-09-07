@@ -15,7 +15,7 @@ const Navbar = () => {
   const menuItems = [
     { icon: Home, label: "Home", href: "/" },
     { icon: User, label: "Experience", href: "/experience" },
-    { icon: Settings, label: "Projects", href: "#services" },
+    { icon: Settings, label: "Projects", href: "/projects" },
     { icon: Info, label: "Contact", href: "#info" },
   ];
 

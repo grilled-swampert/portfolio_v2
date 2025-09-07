@@ -1,11 +1,12 @@
 import React from "react";
 import DownButton from "../ui/DownButton";
+import ExperienceTimeline from "./ExperienceTimeline";
 
 const ExperienceLanding = () => {
   return (
-    <div className="flex justify-center items-center w-full h-full bg-gradient-to-b from-green-900 to-white">
+    <div className="flex flex-col justify-center items-center w-full bg-gradient-to-b from-green-900 to-gray-800">
       <div
-        className="relative flex justify-start flex-col align-middle items-center w-11/12 gap-10 rounded-3xl bg-gradient-to-b from-black to-gray-800 shadow-2xl"
+        className="relative flex justify-start flex-col align-middle items-center w-11/12 gap-10 rounded-3xl bg-gradient-to-b mt-24 from-black to-gray-800 shadow-2xl"
         style={{
           height: "calc(20vh)",
           boxShadow: "0 20px 60px rgba(0, 0, 0, 0.5)",
@@ -31,10 +32,13 @@ const ExperienceLanding = () => {
           }}
         ></div>
 
-        <div className="flex justify-between items-center align-middle w-full h-full px-8 font-poppins">
-            <div className="text-5xl flex justify-between items-center tracking-tighter">experiences.</div>
+        <div className="flex justify-center flex-col items-center align-middle w-full h-full px-8 font-poppins">
+          <div className="text-5xl flex flex-col justify-between items-center tracking-tighter">
+            experiences.
+          </div>
         </div>
       </div>
+      <ExperienceTimeline />
     </div>
   );
 };
