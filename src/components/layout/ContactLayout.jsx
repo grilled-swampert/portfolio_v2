@@ -61,7 +61,7 @@ const ContactLayout = () => {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-800 via-white to-white text-black pt-72">
+    <div className="min-h-screen bg-gradient-to-b from-gray-800 via-gray-200 to-white text-black pt-72">
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="text-center mb-20">
           <h1 className="text-5xl md:text-6xl font-light mb-6 tracking-tight">

@@ -1,5 +1,6 @@
 import React from "react";
 import DownButton from "../ui/DownButton";
+import ProjectsList from "./ProjectsList";
 
 const ProjectsLanding = () => {
   return (
@@ -37,6 +38,7 @@ const ProjectsLanding = () => {
           </div>
         </div>
       </div>
+      <ProjectsList />
     </div>
   );
 };

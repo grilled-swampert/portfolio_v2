@@ -1,9 +1,11 @@
 import React, { useState, useRef } from "react";
 import { TiLocationArrow } from "react-icons/ti";
+import { useNavigate } from "react-router-dom";
 
-export const BentoTilt = ({ children, className = "" }) => {
+export const BentoTilt = ({ src, children, className = "" }) => {
   const [transformStyle, setTransformStyle] = useState("");
   const itemRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleMouseMove = (event) => {
     if (!itemRef.current) return;
@@ -25,12 +27,19 @@ export const BentoTilt = ({ children, className = "" }) => {
     setTransformStyle("");
   };
 
+  const handleRedirect = () => {
+    console.log("src:", src)
+    navigate(src);
+    + window.scrollTo(0, 0);
+  }
+
   return (
     <div
       ref={itemRef}
       className={className}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onClick={handleRedirect}
       style={{ transform: transformStyle }}
     >
       {children}
@@ -128,7 +137,7 @@ const ProjectsLayout = () => (
           />
         </BentoTilt>
 
-        <BentoTilt className="bg-white bento-tilt_2">
+        <BentoTilt className="bg-white bento-tilt_2" src={"/projects"} >
           <div className="flex size-full flex-col justify-between bg-black p-5 border-white border-4">
             <h1 className="bento-title special-font max-w-64 text-white">
               Other Projects.

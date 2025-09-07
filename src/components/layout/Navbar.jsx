@@ -122,6 +122,7 @@ const Navbar = () => {
     } else {
       // Navigate using React Router
       navigate(href);
+      + window.scrollTo(0, 0);
     }
   };
 
