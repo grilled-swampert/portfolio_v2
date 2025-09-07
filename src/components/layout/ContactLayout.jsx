@@ -1,64 +1,94 @@
-"use client"
+"use client";
 
-import React, { useState } from "react"
-import { Github, Linkedin, Mail, FileText, Send, MapPin, Phone } from "lucide-react"
+import React, { useState } from "react";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  FileText,
+  Send,
+  MapPin,
+  Phone,
+} from "lucide-react";
+import emailjs from 'emailjs-com';
 
 const ContactLayout = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitted, setSubmitted] = useState(false)
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleInputChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    if (!formData.name || !formData.email || !formData.message) return
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) return;
 
-    setIsSubmitting(true)
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-    setFormData({ name: "", email: "", message: "" })
-    setIsSubmitting(false)
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 3000)
-  }
+    setIsSubmitting(true);
+
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAIL_SERVICE_ID, // For Vite. Use process.env.REACT_APP_EMAIL_SERVICE_ID for CRA.
+        import.meta.env.VITE_EMAIL_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          reply_to: formData.email,
+          message: formData.message,
+        },
+        import.meta.env.VITE_EMAIL_USER_ID
+      );
+
+      setFormData({ name: "", email: "", message: "" });
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 3000);
+    } catch (error) {
+      console.error("Email send error:", error);
+      alert("Failed to send message. Try again!");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const contactMethods = [
-    { 
-      icon: Mail, 
-      title: "Email", 
+    {
+      icon: Mail,
+      title: "Email",
       value: "crispy.swap@gmail.com",
-      href: "mailto:crispy.swap@gmail.com"
+      href: "mailto:crispy.swap@gmail.com",
     },
-    { 
-      icon: MapPin, 
-      title: "Location", 
+    {
+      icon: MapPin,
+      title: "Location",
       value: "The Nether",
-      href: null
+      href: null,
     },
-  ]
+  ];
 
   const socialLinks = [
-    { 
-      icon: Github, 
-      title: "GitHub", 
+    {
+      icon: Github,
+      title: "GitHub",
       href: "https://github.com/grilled-swampert",
-      label: "View repositories"
+      label: "View repositories",
     },
-    { 
-      icon: Linkedin, 
-      title: "LinkedIn", 
+    {
+      icon: Linkedin,
+      title: "LinkedIn",
       href: "https://www.linkedin.com/in/swapnil-ranadive-65b260342/",
-      label: "Connect professionally"
+      label: "Connect professionally",
     },
-    { 
-      icon: FileText, 
-      title: "Resume", 
+    {
+      icon: FileText,
+      title: "Resume",
       href: "https://drive.google.com/file/d/1PYeu5RQ7j1iIo1yBSMnffvjR8B-DtpG-/view?usp=sharing",
-      label: "Download PDF"
+      label: "Download PDF",
     },
-  ]
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-800 via-gray-200 to-white text-black pt-72">
@@ -69,14 +99,17 @@ const ContactLayout = () => {
           </h1>
           <div className="w-16 h-px bg-black mx-auto mb-8"></div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Im always open to discussing new opportunities and interesting ideas.
+            Im always open to discussing new opportunities and interesting
+            ideas.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16">
           <div className="space-y-12">
             <div>
-              <h2 className="text-2xl font-light mb-8 tracking-tight">Contact Information</h2>
+              <h2 className="text-2xl font-light mb-8 tracking-tight">
+                Contact Information
+              </h2>
               <div className="space-y-6">
                 {contactMethods.map((method, index) => (
                   <div key={index} className="flex items-center space-x-4">
@@ -88,7 +121,7 @@ const ContactLayout = () => {
                         {method.title}
                       </p>
                       {method.href ? (
-                        <a 
+                        <a
                           href={method.href}
                           className="text-black text-2xl hover:text-gray-600 transition-colors duration-200"
                         >
@@ -104,7 +137,9 @@ const ContactLayout = () => {
             </div>
 
             <div>
-              <h2 className="text-2xl font-light mb-8 tracking-tight">Connect</h2>
+              <h2 className="text-2xl font-light mb-8 tracking-tight">
+                Connect
+              </h2>
               <div className="space-y-4">
                 {socialLinks.map((link, index) => (
                   <a
@@ -113,7 +148,10 @@ const ContactLayout = () => {
                     className="flex items-center justify-between p-4 border border-gray-200 hover:border-black transition-colors duration-200 group"
                   >
                     <div className="flex items-center space-x-4">
-                      <link.icon size={20} className="group-hover:text-gray-600 transition-colors duration-200" />
+                      <link.icon
+                        size={20}
+                        className="group-hover:text-gray-600 transition-colors duration-200"
+                      />
                       <div>
                         <p className="font-medium text-xl">{link.title}</p>
                         <p className="text-sm text-gray-600">{link.label}</p>
@@ -129,8 +167,10 @@ const ContactLayout = () => {
           </div>
 
           <div>
-            <h2 className="text-2xl font-light mb-8 tracking-tight">Send a Message</h2>
-            
+            <h2 className="text-2xl font-light mb-8 tracking-tight">
+              Send a Message
+            </h2>
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-600 mb-2 uppercase tracking-wider">
@@ -198,7 +238,7 @@ const ContactLayout = () => {
               </div>
 
               {submitted && (
-                <div className="text-center py-4 text-gray-600">
+                <div className="text-center text-2xl py-4 text-gray-600">
                   Message sent successfully!
                 </div>
               )}
@@ -214,7 +254,7 @@ const ContactLayout = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default ContactLayout;

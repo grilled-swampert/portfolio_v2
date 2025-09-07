@@ -16,24 +16,38 @@ const ExperienceTimeline = () => {
 
   const experiences = [
     {
-      year: "2024",
-      title: "Senior Full Stack Developer",
-      company: "Tech Innovations Inc.",
+      year: "May 2025 – Present",
+      title: "DevOps Engineer Intern",
+      company: "CitiusCloud Services LLP",
       description:
-        "Leading development of scalable web applications using React, Node.js, and cloud technologies.",
+        "Designing and implementing automation solutions for VM provisioning, software installation workflows, and integrations. Supporting development of a containerized PERN stack product.",
       branch: "main",
-      link: "#senior-dev-details",
-      tech: ["React", "Node.js", "AWS", "TypeScript", "PostgreSQL", "Docker"],
+      link: "https://www.citiuscloud.com/",
+      tech: [
+        "Node.js",
+        "PostgreSQL",
+        "Docker",
+        "Kubernetes",
+        "OpenShift",
+        "Shell Scripting",
+        "PERN Stack",
+        "Python",
+      ],
     },
     {
-      year: "2023",
-      title: "Full Stack Developer",
-      company: "Digital Solutions Co.",
+      year: "March 2024 - July 2024",
+      title: "Summer Fellowship",
+      company: "FOSSEE, IIT Bombay",
       description:
-        "Built responsive web applications and RESTful APIs. Collaborated with cross-functional teams.",
+        "Developed a Blender addon to automate generation of OpenFOAM dictionaries for geometry creation. Implemented tools for arcs, polylines, and splines with dynamic parameter editing, enhancing CFD workflow efficiency.",
       branch: "side",
-      link: "#fullstack-dev-details",
-      tech: ["JavaScript", "Express.js", "MongoDB", "React", "Tailwind CSS"],
+      link: "https://fossee.in/",
+      tech: [
+        "Python",
+        "Blender API",
+        "PyVnT",
+        "Git",
+      ],
     },
   ];
 
@@ -186,7 +200,7 @@ const ExperienceTimeline = () => {
                   />
 
                   <div
-                    className="experience-card w-96 mx-auto relative"
+                    className="experience-card w-full mx-auto relative"
                     style={{
                       transform: `translateY(${index * -4}px) rotate(${(index % 2 === 0 ? 1 : -1) * (index * 0.5)}deg)`,
                       zIndex: experiences.length - index,
@@ -249,9 +263,6 @@ const ExperienceTimeline = () => {
                       >
                         More Info →
                       </button> */}
-                      <div className="flex justify-center align-middle w-full mt-8">
-                        <NextButton text="LEARN MORE " />
-                      </div>{" "}
                     </div>
                   </div>
                 </div>

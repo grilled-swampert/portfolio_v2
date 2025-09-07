@@ -144,7 +144,7 @@ const ExperienceLayout = () => {
       <section className="h-full flex justify-center">
         <div className="container w-full p-20 text-center text-white">
           <h1 className="text-4xl md:text-6xl font-light mb-4">
-            Section under renovation.
+            Searching for another opportunity...
           </h1>
         </div>
       </section>

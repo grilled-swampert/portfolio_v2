@@ -102,7 +102,7 @@ const HomeLayout = () => {
         ref={containerRef}
         className="relative flex justify-start flex-col items-center w-11/12 mt-36 gap-10 rounded-3xl bg-gradient-to-b from-black to-gray-800 shadow-2xl"
         style={{
-          height: "calc(100vh - 36px)",
+          height: "calc(90vh)",
           boxShadow: "0 20px 60px rgba(0, 0, 0, 0.5)",
         }}
       >
@@ -161,19 +161,32 @@ const HomeLayout = () => {
           <div className="flex-1 flex flex-col justify-center items-end space-y-6">
             <nav ref={navRef} className="text-right space-y-4">
               {[
-                "Experience",
-                "Project",
-                "Contact",
-                "Resume",
-                "GitHub",
-                "LinkedIn",
+                { name: "Experiences", href: "/experience" },
+                { name: "Projects", href: "/projects" },
+                {
+                  name: "Resume",
+                  href: "https://drive.google.com/file/d/1PYeu5RQ7j1iIo1yBSMnffvjR8B-DtpG-/view?usp=sharing",
+                },
+                { name: "GitHub", href: "https://github.com/grilled-swampert" },
+                {
+                  name: "LinkedIn",
+                  href: "https://www.linkedin.com/in/swapnil-ranadive-65b260342/",
+                },
               ].map((item) => (
-                <div
-                  key={item}
-                  className="text-lg text-gray-400 hover:bg-white hover:text-black transition-colors cursor-pointer relative after:content-[''] after:block px-3 py-1 rounded"
+                <a
+                  key={item.name}
+                  href={item.href}
+                  target={item.href.startsWith("http") ? "_blank" : "_self"}
+                  rel={
+                    item.href.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
                 >
-                  {item}
-                </div>
+                  <div className="text-lg text-gray-400 hover:bg-white hover:text-black transition-colors cursor-pointer relative after:content-[''] after:block px-3 py-1 rounded tracking-wide mb-4">
+                    {item.name}
+                  </div>
+                </a>
               ))}
             </nav>
           </div>
