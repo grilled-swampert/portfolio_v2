@@ -63,7 +63,7 @@ const ExperienceLayout = () => {
             {experiences.map((experience, index) => (
               <div
                 key={index}
-                className="w-[80vw] h-[95vh] flex flex-col md:flex-row justify-center items-center text-center text-white bg-black p-10 md:p-20 rounded-2xl shadow-xl"
+                className="w-[80vw] h-[95vh] md:h-auto flex flex-col md:flex-row justify-center items-center text-center text-white bg-black p-10 md:p-20 rounded-2xl shadow-xl"
               >
                 {/* Image */}
                 {experience.image && (
