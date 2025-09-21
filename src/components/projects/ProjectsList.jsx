@@ -7,6 +7,34 @@ const ProjectsList = () => {
 
   const projects = [
     {
+      id: "map-matching-gnss",
+      title: "Map Matching for Vehicle GNSS Data",
+      category: "SIH 2024 Finalist Project",
+      year: 2024,
+      tech: ["Python", "Pandas", "NumPy", "Folium", "Scikit-learn"],
+      description:
+        "Processed raw GNSS data for vehicles, applied map-matching algorithms to improve positioning accuracy, and visualized routes on interactive maps.",
+      details:
+        "Implemented filtering and correction techniques, integrated ML models for anomaly detection, and visualized matched paths for performance evaluation.",
+      status: "Completed",
+      github: null,
+      demo: null,
+    },
+    {
+      id: "blender-python-addons",
+      title: "Blender Python Addons",
+      category: "FOSSEE Internship",
+      year: 2024,
+      tech: ["Python", "Blender API", "OpenFOAM"],
+      description:
+        "Developed Blender addons to automate generation of geometries (arcs, polylines, splines) and manipulate them programmatically for simulations.",
+      details:
+        "Created interactive panels, dynamic property updates, and integration with CFD tools like OpenFOAM for engineering workflows.",
+      status: "Completed",
+      github: null,
+      demo: null,
+    },
+    {
       id: "crypto-etl-pipeline",
       title: "Crypto ETL Pipeline",
       category: "Data Engineering",
@@ -47,6 +75,34 @@ const ProjectsList = () => {
       status: "Live",
       github: "https://github.com/grilled-swampert/slate-board",
       demo: "https://slate-board-sigma.vercel.app/",
+    },
+    {
+      id: "mern-elective-project",
+      title: "MERN Stack Elective Project",
+      category: "Web Development",
+      year: null,
+      tech: ["MongoDB", "ExpressJS", "React", "NodeJS"],
+      description:
+        "A full-stack web application built for an elective course, focusing on dynamic CRUD operations, authentication, and responsive UI.",
+      details:
+        "Implemented JWT-based authentication, role-based access control, and optimized data fetching with MongoDB aggregations.",
+      status: "Completed",
+      github: null,
+      demo: null,
+    },
+    {
+      id: "coding-ai-agent",
+      title: "Coding AI Agent",
+      category: "Artificial Intelligence",
+      year: null,
+      tech: ["Python", "OpenAI API", "LangChain", "FastAPI"],
+      description:
+        "An AI agent capable of understanding coding queries, generating solutions, and interacting via a REST API or chat interface.",
+      details:
+        "Integrated language model APIs with code execution environment, added conversational memory, and automated code testing and suggestions.",
+      status: "Ongoing Enhancements",
+      github: null,
+      demo: null,
     },
   ];
 
@@ -167,8 +223,13 @@ const ProjectsList = () => {
                           ? "bg-green-900/50 text-green-300 border-green-700"
                           : project.status === "Beta"
                             ? "bg-yellow-900/50 text-yellow-300 border-yellow-700"
-                            : "bg-blue-900/50 text-blue-300 border-blue-700"
+                            : project.status === "Completed"
+                              ? "bg-purple-900/50 text-purple-300 border-purple-700"
+                              : project.status === "Ongoing Enhancements"
+                                ? "bg-blue-900/50 text-blue-300 border-blue-700"
+                                : "bg-gray-900/50 text-gray-300 border-gray-700"
                       }
+
                     `}
                     >
                       {project.status}
