@@ -2,15 +2,16 @@
 
 import React, { useEffect } from "react";
 import NextButton from "../ui/NextButton";
-import Experience01Picture from "../../assets/exp01.png"
-import Experience02Picture from "../../assets/exp02.png"
+import Experience01Picture from "../../assets/exp01.png";
+import Experience02Picture from "../../assets/exp02.png";
 
 const experiences = [
   {
     name: "Citius Cloud LLP",
-    stack: "Kubernetes, ReactJS, PostresSQL, Digital Ocean, Vault, Cypress, Openshift",
+    stack:
+      "Kubernetes, ReactJS, PostresSQL, Digital Ocean, Vault, Cypress, Openshift",
     description:
-      "A tool that processes GNSS data to accurately match and identify road networks for improved navigation.",
+      "Designing and implementing automation solutions for VM provisioning, software installation workflows, and integrations. Supporting development of a containerized PERN stack product.",
     title: "DevOps Engineer Intern",
     githubLink: "",
     image: Experience02Picture,
@@ -21,12 +22,12 @@ const experiences = [
     name: "FOSSEE, IIT Bombay",
     stack: "Python, Blender",
     description:
-      "A web application that leverages AI to generate detailed financial investment reports and actionable insights.",
+      "Developed a Blender addon to automate generation of OpenFOAM dictionaries for geometry creation. Implemented tools for arcs, polylines, and splines with dynamic parameter editing, enhancing CFD workflow efficiency.",
     title: "Summer Fellowship",
     githubLink: "",
     image: Experience01Picture,
     status: "",
-    time: "May 2025 - Present",
+    time: "March 2024 - July 2024",
   },
 ];
 
@@ -89,7 +90,9 @@ const ExperienceLayout = () => {
                   )}
 
                   {experience.time && (
-                    <p className="text-sm text-gray-300 mb-4">{experience.time}</p>
+                    <p className="text-sm text-gray-300 mb-4">
+                      {experience.time}
+                    </p>
                   )}
 
                   {/* Stack */}

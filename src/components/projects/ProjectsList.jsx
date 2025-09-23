@@ -7,6 +7,7 @@ const ProjectsList = () => {
 
   const projects = [
     {
+      // map matching
       id: "map-matching-gnss",
       title: "Map Matching for Vehicle GNSS Data",
       category: "SIH 2024 Finalist Project",
@@ -21,6 +22,7 @@ const ProjectsList = () => {
       demo: null,
     },
     {
+      // blender python addons
       id: "blender-python-addons",
       title: "Blender Python Addons",
       category: "FOSSEE Internship",
@@ -35,6 +37,7 @@ const ProjectsList = () => {
       demo: null,
     },
     {
+      // crypto etl pipeline
       id: "crypto-etl-pipeline",
       title: "Crypto ETL Pipeline",
       category: "Data Engineering",
@@ -49,6 +52,7 @@ const ProjectsList = () => {
       demo: null,
     },
     {
+      // ecommerce microservices
       id: "ecommerce-microservices",
       title: "E-commerce Microservices Platform",
       category: "Backend / DevOps",
@@ -63,6 +67,7 @@ const ProjectsList = () => {
       demo: null,
     },
     {
+      // slateboard
       id: "slateboard",
       title: "Slateboard – Real-Time Whiteboard",
       category: "Realtime Collaboration Tool",
@@ -77,6 +82,7 @@ const ProjectsList = () => {
       demo: "https://slate-board-sigma.vercel.app/",
     },
     {
+      // mern elective project
       id: "mern-elective-project",
       title: "MERN Stack Elective Project",
       category: "Web Development",
@@ -90,20 +96,96 @@ const ProjectsList = () => {
       github: null,
       demo: null,
     },
-    {
-      id: "coding-ai-agent",
-      title: "Coding AI Agent",
-      category: "Artificial Intelligence",
-      year: null,
-      tech: ["Python", "OpenAI API", "LangChain", "FastAPI"],
-      description:
-        "An AI agent capable of understanding coding queries, generating solutions, and interacting via a REST API or chat interface.",
-      details:
-        "Integrated language model APIs with code execution environment, added conversational memory, and automated code testing and suggestions.",
-      status: "Ongoing Enhancements",
-      github: null,
-      demo: null,
-    },
+    // {
+    //   // coding ai agent
+    //   id: "coding-ai-agent",
+    //   title: "Coding AI Agent",
+    //   category: "Artificial Intelligence",
+    //   year: null,
+    //   tech: ["Python", "OpenAI API", "LangChain", "FastAPI"],
+    //   description:
+    //     "An AI agent capable of understanding coding queries, generating solutions, and interacting via a REST API or chat interface.",
+    //   details:
+    //     "Integrated language model APIs with code execution environment, added conversational memory, and automated code testing and suggestions.",
+    //   status: "Beta",
+    //   github: null,
+    //   demo: null,
+    // },
+    // {
+    //   // cybersecurity agent
+    //   id: "cybersecurity-agent",
+    //   title: "Real-Time Adaptive Cybersecurity Agent",
+    //   category: "AI for Security",
+    //   year: null,
+    //   tech: ["Python", "Scikit-learn", "Kafka", "FastAPI", "ELK Stack"],
+    //   description:
+    //     "Developed an AI-driven security agent that learns normal network traffic patterns and flags anomalies in real time.",
+    //   details:
+    //     "Implemented online anomaly detection models, streaming data ingestion, and an interactive dashboard for threat monitoring.",
+    //   status: "In Progress",
+    //   github: null,
+    //   demo: null,
+    // },
+    // {
+    //   // autonomous research assistant
+    //   id: "autonomous-research-assistant",
+    //   title: "Autonomous Research Assistant",
+    //   category: "Applied AI / Knowledge Graphs",
+    //   year: null,
+    //   tech: ["Python", "LangChain", "Neo4j", "OpenAI API", "FastAPI"],
+    //   description:
+    //     "Built an agent that reads academic papers, extracts key insights, and creates a knowledge graph for domain-specific Q&A.",
+    //   details:
+    //     "Integrated RAG pipelines with embeddings, automated knowledge extraction from PDFs, and graph ML for link prediction.",
+    //   status: "In Progress",
+    //   github: null,
+    //   demo: null,
+    // },
+    // {
+    //   // causal inference
+    //   id: "causal-inference-engine",
+    //   title: "Causal Inference Engine for Business Decisions",
+    //   category: "Data Science",
+    //   year: null,
+    //   tech: ["Python", "EconML", "DoWhy", "Pandas", "Scikit-learn"],
+    //   description:
+    //     "Developed a framework to estimate the causal impact of interventions such as promotions or pricing strategies.",
+    //   details:
+    //     "Applied causal forests and treatment effect estimation to separate correlation from causation, enabling data-driven decision-making.",
+    //   status: "In Progress",
+    //   github: null,
+    //   demo: null,
+    // },
+    // {
+    //   // bias fairness auditing
+    //   id: "bias-fairness-audit",
+    //   title: "Bias & Fairness Auditing Toolkit",
+    //   category: "Responsible AI",
+    //   year: null,
+    //   tech: ["Python", "Pandas", "Scikit-learn", "SHAP", "LIME"],
+    //   description:
+    //     "Created a toolkit to audit ML models for fairness, bias, and explainability across demographic groups.",
+    //   details:
+    //     "Implemented fairness metrics, visual dashboards, and bias mitigation strategies with interpretability layers.",
+    //   status: "In Progress",
+    //   github: null,
+    //   demo: null,
+    // },
+    // {
+    //   // anomaly detection streaming
+    //   id: "streaming-anomaly-detection",
+    //   title: "Real-Time Anomaly Detection in Streaming Data",
+    //   category: "Data Science / Streaming ML",
+    //   year: null,
+    //   tech: ["Python", "Kafka", "PyTorch", "Scikit-learn"],
+    //   description:
+    //     "Built a streaming ML system to detect anomalies in financial transactions and IoT sensor data in real time.",
+    //   details:
+    //     "Integrated online learning models with drift detection, deployed on a scalable message queue pipeline, and visualized alerts in dashboards.",
+    //   status: "In Progress",
+    //   github: null,
+    //   demo: null,
+    // },
   ];
 
   // Handle hash-based navigation
@@ -135,19 +217,22 @@ const ProjectsList = () => {
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
+  // Fixed number of background elements (you can adjust this number)
+  const backgroundStackCount = 5;
+
   return (
     <div className="min-h-screen text-white py-20">
       <div className="max-w-6xl mx-auto px-6">
         <div className="relative">
-          {/* Background stack effect */}
+          {/* Background stack effect - Fixed number */}
           <div className="absolute inset-0 flex justify-center">
-            {projects.map((_, index) => (
+            {Array.from({ length: backgroundStackCount }, (_, index) => (
               <div
                 key={index}
                 className="absolute w-80 h-32 bg-slate-800/20 rounded-lg border border-slate-700/30"
                 style={{
                   transform: `translateY(${index * 8}px) translateX(${index * 2}px) rotate(${index * 0.5}deg)`,
-                  zIndex: projects.length - index - 10,
+                  zIndex: backgroundStackCount - index - 10,
                 }}
               />
             ))}
@@ -196,7 +281,6 @@ const ProjectsList = () => {
                                   ? "shadow-2xl bg-black border-slate-600"
                                   : "shadow-lg hover:shadow-xl"
                               }
-                              ${hoveredIndex === index ? "h-[500px] sm:h-[320px] md:h-[360px]" : "h-[170px] sm:h-[150px] md:h-[160px]"}
                             `}
                   style={{ maxWidth: "100%" }}
                 >
