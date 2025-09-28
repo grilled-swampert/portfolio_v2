@@ -96,21 +96,21 @@ const ProjectsList = () => {
       github: null,
       demo: null,
     },
-    // {
-    //   // coding ai agent
-    //   id: "coding-ai-agent",
-    //   title: "Coding AI Agent",
-    //   category: "Artificial Intelligence",
-    //   year: null,
-    //   tech: ["Python", "OpenAI API", "LangChain", "FastAPI"],
-    //   description:
-    //     "An AI agent capable of understanding coding queries, generating solutions, and interacting via a REST API or chat interface.",
-    //   details:
-    //     "Integrated language model APIs with code execution environment, added conversational memory, and automated code testing and suggestions.",
-    //   status: "Beta",
-    //   github: null,
-    //   demo: null,
-    // },
+    {
+      id: "coding-ai-agent",
+      title: "Coding AI Agent",
+      category: "Artificial Intelligence",
+      year: 2025,
+      tech: ["Python", "Gemini API"],
+      description:
+        "A command-line AI agent that understands coding queries, generates solutions, executes code, and provides interactive assistance.",
+      details:
+        "Built with Python and integrated with Gemini LLM API for robust reasoning. Supports real-time debugging, file reading, and automatic error fixing. Designed for developers to interact directly via CLI.",
+      status: "Completed",
+      github: "https://github.com/grilled-swampert/agentic-coding",
+      demo: null,
+    },
+
     // {
     //   // cybersecurity agent
     //   id: "cybersecurity-agent",
