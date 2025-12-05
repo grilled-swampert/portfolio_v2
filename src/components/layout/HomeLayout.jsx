@@ -397,44 +397,6 @@ const HomeLayout = () => {
           }}
         ></div>
 
-        {/* Glowing Orbs - White themed */}
-        <div
-          className="glow-orb-1 absolute top-1/4 left-1/4 w-96 h-96 rounded-full pointer-events-none"
-          style={{
-            background: "radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%)",
-            filter: "blur(60px)",
-          }}
-        ></div>
-        <div
-          className="glow-orb-2 absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full pointer-events-none"
-          style={{
-            background: "radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, transparent 70%)",
-            filter: "blur(60px)",
-          }}
-        ></div>
-
-        {/* Parallax Effect Layer */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`,
-            transition: "transform 0.3s ease-out",
-          }}
-        >
-          <div
-            className="absolute top-20 left-20 w-2 h-2 bg-white rounded-full opacity-40"
-            style={{ boxShadow: "0 0 20px rgba(255, 255, 255, 0.6)" }}
-          ></div>
-          <div
-            className="absolute top-40 right-32 w-3 h-3 bg-gray-300 rounded-full opacity-30"
-            style={{ boxShadow: "0 0 25px rgba(255, 255, 255, 0.5)" }}
-          ></div>
-          <div
-            className="absolute bottom-32 left-40 w-2 h-2 bg-white rounded-full opacity-50"
-            style={{ boxShadow: "0 0 20px rgba(255, 255, 255, 0.7)" }}
-          ></div>
-        </div>
-
         {/* Header Section */}
         <div
           ref={headerRef}
@@ -448,16 +410,14 @@ const HomeLayout = () => {
               Swapnil Ranadive
             </div>
             <div className="text-sm sm:text-base text-gray-500 mt-2 font-mono">
-              &lt;developer /&gt; designer
+              &lt;developer /&gt; melophile
             </div>
           </div>
           <div className="mt-6 md:mt-0 relative">
-            <div className="absolute inset-0 bg-white rounded-full blur-xl opacity-20"></div>
             <img
               src={RollingPanda}
               alt="Rolling Panda"
-              className="panda-image relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 object-contain rounded-full mx-auto sm:mx-0 border-4 border-white/20"
-              style={{ boxShadow: "0 0 40px rgba(255, 255, 255, 0.2)" }}
+              className="panda-image relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 object-contain mx-auto sm:mx-0"
             />
           </div>
         </div>
@@ -475,7 +435,7 @@ const HomeLayout = () => {
               </span>
             </div>
             <div className="flex flex-wrap gap-3 justify-center lg:justify-start mt-4">
-              {["React", "Node.js", "UI/UX", "GSAP"].map((skill) => (
+              {[].map((skill) => (
                 <span
                   key={skill}
                   className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-gray-300 text-sm font-mono hover:bg-white/10 hover:border-white/20 transition-all duration-300 cursor-default"
@@ -515,10 +475,7 @@ const HomeLayout = () => {
                           {item.icon}
                         </div>
                       </div>
-                      
-                      {/* Animated line on hover */}
-                      <div className="absolute bottom-0 left-0 h-1 bg-white w-0 group-hover:w-full transition-all duration-500"></div>
-                      
+
                       {/* Corner accent */}
                       <div className="absolute top-0 right-0 w-12 h-12 bg-gradient-to-bl from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
