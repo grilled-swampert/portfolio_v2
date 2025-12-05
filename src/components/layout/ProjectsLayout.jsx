@@ -155,7 +155,7 @@ export const BentoCard = ({
 };
 
 const ProjectsLayout = () => (
-  <section className="bg-gradient-to-b from-black to-gray-800 pb-52">
+  <section className="bg-gradient-to-b from-zinc-800 via-black to-gray-800 pb-52">
     <div className="container mx-auto px-3 md:px-10">
       <div className="px-5 py-32">
         <p className="text-5xl md:text-6xl font-light tracking-tight text-white mb-5 pt-[10rem] flex justify-center">

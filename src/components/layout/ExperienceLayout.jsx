@@ -53,7 +53,7 @@ const ExperienceLayout = () => {
   }, []);
 
   return (
-    <main className="w-full bg-gradient-to-b from-white to-black">
+    <main className="w-full bg-gradient-to-b from-black to-zinc-800">
       <p className="text-5xl md:text-6xl font-light tracking-tight text-black mb-5 pt-[10rem] flex justify-center">
         EXPERIENCES
       </p>
