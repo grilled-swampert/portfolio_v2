@@ -5,6 +5,7 @@ const AboutPage = () => {
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [modelLoaded, setModelLoaded] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -33,22 +34,18 @@ const AboutPage = () => {
     renderer.setSize(containerWidth, containerHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
 
-    // Create torus knot geometry
-    const geometry = new THREE.TorusKnotGeometry(1.5, 0.5, 128, 32);
-    const material = new THREE.MeshStandardMaterial({
-      color: 0x000000,
-      metalness: 0.7,
-      roughness: 0.2,
-      wireframe: false,
-    });
-    const torusKnot = new THREE.Mesh(geometry, material);
-    scene.add(torusKnot);
+    // Placeholder for external model
+    let model = null;
 
-    // Add edges for wireframe effect
-    const edges = new THREE.EdgesGeometry(geometry);
-    const lineMaterial = new THREE.LineBasicMaterial({ color: 0x333333, linewidth: 1 });
-    const wireframe = new THREE.LineSegments(edges, lineMaterial);
-    torusKnot.add(wireframe);
+    // You can load your external 3D model here
+    // Example with GLTFLoader (you'll need to import it):
+    // import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+    // const loader = new GLTFLoader();
+    // loader.load('/path/to/your/panda.gltf', (gltf) => {
+    //   model = gltf.scene;
+    //   scene.add(model);
+    //   setModelLoaded(true);
+    // });
 
     // Lighting
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
@@ -62,14 +59,16 @@ const AboutPage = () => {
     directionalLight2.position.set(-5, -5, -5);
     scene.add(directionalLight2);
 
-    camera.position.z = 6;
+    camera.position.z = 5;
 
     let frameId;
     const animate = () => {
       frameId = requestAnimationFrame(animate);
       
-      torusKnot.rotation.x += 0.005;
-      torusKnot.rotation.y += 0.005;
+      // Rotate model if loaded
+      if (model) {
+        model.rotation.y += 0.008;
+      }
       
       camera.position.x = mousePosition.x * 0.05;
       camera.position.y = -mousePosition.y * 0.05;
@@ -81,23 +80,16 @@ const AboutPage = () => {
 
     return () => {
       cancelAnimationFrame(frameId);
-      geometry.dispose();
-      material.dispose();
-      lineMaterial.dispose();
       renderer.dispose();
     };
   }, [mousePosition]);
 
   const skills = [
-    { category: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "GSAP"] },
-    { category: "Backend", items: ["Node.js", "Express", "MongoDB", "PostgreSQL"] },
-    { category: "Tools", items: ["Git", "Figma", "VS Code", "Docker"] },
-  ];
-
-  const timeline = [
-    { year: "2024", title: "Current Position", description: "Building amazing projects" },
-    { year: "2023", title: "Previous Role", description: "Developed key features" },
-    { year: "2022", title: "Started Journey", description: "Began coding adventure" },
+    { category: "Languages", items: ["Python", "JavaScript", "C++", "SQL"] },
+    { category: "Frameworks", items: ["React", "ExpressJS", "Flask", "Socket.IO"] },
+    { category: "Databases", items: ["PostgreSQL", "MongoDB"] },
+    { category: "DevOps & Tools", items: ["Docker", "Kubernetes", "OpenShift", "Git", "Postman"] },
+    { category: "Technologies", items: ["Airflow", "PySpark", "TensorFlow", "Scikit-learn"] },
   ];
 
   return (
@@ -124,7 +116,7 @@ const AboutPage = () => {
           }}
         ></div>
 
-        {/* Glowing Orbs - Dark themed for white background */}
+        {/* Glowing Orbs */}
         <div
           className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full pointer-events-none"
           style={{
@@ -171,24 +163,32 @@ const AboutPage = () => {
               <div className="relative bg-white/50 backdrop-blur-sm border-2 border-black/10 rounded-3xl p-8 flex justify-center items-center"
                 style={{ boxShadow: "0 10px 40px rgba(0, 0, 0, 0.1)" }}>
                 <canvas ref={canvasRef} className="w-full h-full" />
+                {!modelLoaded && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-gray-400 text-center">
+                      <div className="text-6xl mb-4">🐼</div>
+                      <div className="text-sm">Load your 3D model here</div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
             {/* Intro Text */}
             <div className="text-center lg:text-left max-w-md">
               <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                I'm a passionate developer and designer who loves creating beautiful, 
-                functional digital experiences. With a keen eye for detail and a drive 
-                for innovation, I turn ideas into reality.
+                I'm a Software Development Engineer and Electronics & Computer Engineering student 
+                at K.J. Somaiya College (CGPA: 9.61/10) with Honors in Data Science. I specialize 
+                in building scalable systems, automating workflows, and crafting modern web applications.
               </p>
               <p className="text-base text-gray-600 leading-relaxed">
-                Currently focused on building modern web applications with cutting-edge 
-                technologies and best practices.
+                Currently working on DevOps automation, microservices architecture, and distributed 
+                systems. Passionate about competitive programming with 150+ problems solved on LeetCode.
               </p>
             </div>
           </div>
 
-          {/* Right Column - Skills and Timeline */}
+          {/* Right Column - Skills */}
           <div className="flex-1 flex flex-col gap-10">
             {/* Skills Section */}
             <div>
@@ -214,23 +214,6 @@ const AboutPage = () => {
                 ))}
               </div>
             </div>
-
-            {/* Timeline Section */}
-            <div>
-              <h2 className="text-3xl font-bold text-black mb-6">Journey</h2>
-              <div className="space-y-6 relative pl-8 border-l-2 border-black/20">
-                {timeline.map((item, index) => (
-                  <div key={index} className="relative group">
-                    <div className="absolute -left-10 top-0 w-4 h-4 bg-black rounded-full border-4 border-white group-hover:scale-125 transition-transform duration-300"></div>
-                    <div className="bg-white/50 backdrop-blur-sm border border-black/10 rounded-2xl p-6 hover:border-black/30 hover:shadow-lg transition-all duration-300">
-                      <div className="text-sm font-mono text-gray-500 mb-2">{item.year}</div>
-                      <h3 className="text-xl font-bold text-black mb-2">{item.title}</h3>
-                      <p className="text-gray-600">{item.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
 
@@ -238,20 +221,44 @@ const AboutPage = () => {
         <div className="w-full px-8 pb-12 z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { number: "50+", label: "Projects Completed" },
-              { number: "3+", label: "Years Experience" },
-              { number: "100%", label: "Client Satisfaction" },
-              { number: "∞", label: "Coffee Consumed" },
+              { number: "Mumbai, IN", label: "Open to Work", link: null },
+              { number: "150+", label: "LeetCode Problems", link: "https://leetcode.com/u/grilled-swampert/" },
+              { number: "Full-Stack & Deployment", label: "Development", link: null },
+              { number: "MLOps", label: "Learning", link: null },
             ].map((stat, index) => (
-              <div
-                key={index}
-                className="bg-white/50 backdrop-blur-sm border border-black/10 rounded-2xl p-6 text-center hover:border-black/30 hover:shadow-lg transition-all duration-300 group"
-              >
-                <div className="text-4xl font-bold text-black mb-2 group-hover:scale-110 transition-transform duration-300">
-                  {stat.number}
+              stat.link ? (
+                <a
+                  key={index}
+                  href={stat.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white/50 backdrop-blur-sm border border-black/10 rounded-2xl p-6 text-center hover:border-black hover:shadow-2xl transition-all duration-300 group cursor-pointer relative overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/0 via-orange-500/0 to-red-500/0 group-hover:from-yellow-400/10 group-hover:via-orange-500/10 group-hover:to-red-500/10 transition-all duration-500"></div>
+                  <div className="relative z-10">
+                    <div className="text-4xl font-bold text-black mb-2 group-hover:scale-125 transition-transform duration-300">
+                      {stat.number}
+                    </div>
+                    <div className="text-sm text-gray-600 font-medium group-hover:text-black group-hover:font-bold transition-all duration-300">
+                      {stat.label}
+                    </div>
+                    <div className="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="text-xs font-mono text-orange-600">→ View Profile</span>
+                    </div>
+                  </div>
+                  <div className="absolute -bottom-2 -right-2 w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500 group-hover:scale-150"></div>
+                </a>
+              ) : (
+                <div
+                  key={index}
+                  className="bg-white/50 backdrop-blur-sm border border-black/10 rounded-2xl p-6 text-center hover:border-black/30 hover:shadow-lg transition-all duration-300 group"
+                >
+                  <div className="text-4xl font-bold text-black mb-2 group-hover:scale-110 transition-transform duration-300">
+                    {stat.number}
+                  </div>
+                  <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
                 </div>
-                <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
-              </div>
+              )
             ))}
           </div>
         </div>
