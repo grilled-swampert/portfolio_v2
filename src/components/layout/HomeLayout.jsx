@@ -387,7 +387,7 @@ const HomeLayout = () => {
       >
         {/* Animated Grid Background */}
         <div
-          className="bg-grid absolute inset-0 opacity-15 pointer-events-none"
+          className="bg-grid absolute inset-0 opacity-15 pointer-events-none rounded-3xl"
           style={{
             backgroundImage: `
               linear-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px),
