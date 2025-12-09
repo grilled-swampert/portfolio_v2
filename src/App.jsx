@@ -1,7 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import walkingGif from "./assets/red_walk.gif";
 import idlePng from "./assets/idle.gif";
+import Home from "./pages/Home";
+import Privacy from "./pages/Privacy";
+import Blog from "./pages/Blog";
+import Projects from "./pages/Projects";
+import { Contact } from "lucide-react";
 
 const App = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -15,7 +20,7 @@ const App = () => {
   useEffect(() => {
     const handleMouseMove = (e) => {
       setMousePos({ x: e.clientX, y: e.clientY });
-      
+
       if (e.clientX < prevXRef.current) {
         setFacingLeft(true);
       } else if (e.clientX > prevXRef.current) {
@@ -24,8 +29,8 @@ const App = () => {
       prevXRef.current = e.clientX;
     };
 
-    document.addEventListener('mousemove', handleMouseMove);
-    return () => document.removeEventListener('mousemove', handleMouseMove);
+    document.addEventListener("mousemove", handleMouseMove);
+    return () => document.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   useEffect(() => {
@@ -34,14 +39,14 @@ const App = () => {
       const dy = mousePos.y - followerRef.current.y;
       const distance = Math.hypot(dx, dy);
 
-      setIsMoving(distance > 1);
+      setIsMoving(distance > 2);
 
-      followerRef.current.x += dx * 0.12;
-      followerRef.current.y += dy * 0.12;
+      followerRef.current.x += dx * 0.05;
+      followerRef.current.y += dy * 0.05;
 
       setFollowerPos({
         x: followerRef.current.x,
-        y: followerRef.current.y
+        y: followerRef.current.y,
       });
 
       rafRef.current = requestAnimationFrame(animate);
@@ -54,42 +59,49 @@ const App = () => {
   return (
     <BrowserRouter>
       <style>{`body { cursor: none; }`}</style>
-      
-      {/* Radial gradient spotlight overlay */}
-      <div 
-        className="fixed inset-0 pointer-events-none z-[9998]"
+
+      {/* Custom cursor */}
+      <div
+        className="fixed pointer-events-none z-[9998] bg-white rounded-full"
         style={{
-          background: `radial-gradient(circle 150px at ${followerPos.x}px ${followerPos.y}px, 
-            rgba(255, 255, 255, 0.15) 0%, 
-            rgba(255, 255, 255, 0.08) 40%,
-            transparent 70%)`,
-          transition: 'background 0.1s ease-out'
+          left: `${mousePos.x}px`,
+          top: `${mousePos.y}px`,
+          transform: `translate(-50%, -50%)`,
+          width: "20px",
+          height: "20px",
         }}
       />
-      
+
       <div className="h-screen flex items-center justify-center bg-black text-white text-4xl">
-        hello there.
+          <Routes>
+            <Route path="*" element={<Home />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
       </div>
+
       <div className="h-screen">meow</div>
-      
+
       {/* Character follower */}
-      <div 
+      <div
         className="fixed pointer-events-none z-[9999]"
-        style={{ 
+        style={{
           left: `${followerPos.x}px`,
           top: `${followerPos.y}px`,
           transform: `translate(-50%, -50%) scaleX(${facingLeft ? 1 : -1})`,
-          width: '80px',
-          height: '80px'
+          width: "80px",
+          height: "80px",
         }}
       >
         <img
           src={isMoving ? walkingGif : idlePng}
           alt="Among Us Crewmate"
           style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'contain'
+            width: "100%",
+            height: "100%",
+            objectFit: "contain",
           }}
         />
       </div>
