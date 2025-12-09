@@ -223,7 +223,6 @@ const AboutPage = () => {
             {[
               { number: "Mumbai, IN", label: "Open to Work", link: null },
               { number: "150+", label: "LeetCode Problems", link: "https://leetcode.com/u/grilled-swampert/" },
-              { number: "Full-Stack & Deployment", label: "Development", link: null },
               { number: "MLOps", label: "Learning", link: null },
             ].map((stat, index) => (
               stat.link ? (
