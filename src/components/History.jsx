@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import CitiusCloudLogo from "../assets/citiuscloud.png";
 import FosseeLogo from "../assets/fossee.png";
+import SomaiyaLogo from "../assets/somaiya.png";
 
 const workData = [
   {
@@ -13,7 +14,7 @@ const workData = [
     bullets: [
       "Automated OpenShift CI/CD using Postman, k6, and Cypress to cut manual regression effort by 80% and standardize release quality gates.",
       "Refactored legacy backend components by extracting business logic into microservices to improve maintainability, enable independent deployments, and increase code reuse across services.",
-      "Improved production readiness by adding DevSecOps + observability (Trivy, SonarQube, Prometheus, Grafana) to catch vulnerabilities earlier and speed up incident detection and recovery (lower MTTR)."
+      "Improved production readiness by adding DevSecOps + observability (Trivy, SonarQube, Prometheus, Grafana) to catch vulnerabilities earlier and speed up incident detection and recovery (lower MTTR).",
     ],
   },
   {
@@ -34,12 +35,15 @@ const eduData = [
     range: "2022 - 2026",
     org: "KJ Somaiya College of Engineering",
     role: "B.Tech in Electronics and Computer Engineering",
-    logoUrl: "https://via.placeholder.com/80",
+    logoUrl: SomaiyaLogo,
     cgpa: "9.61 / 10",
-    bullets: ["Pursuing a Honors in Data Science and Analytics (CGPA: 9.00 / 10)", ],
+    bullets: [
+      "Pursuing a Honors in Data Science and Analytics (CGPA: 9.00 / 10)",
+      "Finalist at Mumbai Hacks 2025, Pune AgriTech Hackathon 2024 and Smart India Hackathon 2024",
+      "Operations Member & Literature Head at E-CESA KJSCE, the official ECE student body",
+    ],
   },
 ];
-
 
 function SegmentedTabs({ tab, setTab }) {
   return (
@@ -95,10 +99,23 @@ function TimelineItem({ item, isLast }) {
       </div>
 
       {/* card */}
+      {/* card */}
       <div className="rounded-xl bg-slate-900/60 p-4 ring-1 ring-white/10">
-        <div className="text-xs text-slate-300">{item.range}</div>
-        <div className="mt-1 text-lg font-extrabold text-white">{item.org}</div>
-        <div className="text-sm text-slate-300">{item.role}</div>
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <div className="text-xs text-slate-300">{item.range}</div>
+            <div className="mt-1 text-lg font-extrabold text-white">
+              {item.org}
+            </div>
+            <div className="text-sm text-slate-300">{item.role}</div>
+          </div>
+
+          {item.cgpa && (
+            <span className="shrink-0 rounded-lg bg-white/10 px-3 py-1 text-xs font-semibold text-white ring-1 ring-white/10">
+              CGPA: {item.cgpa}
+            </span>
+          )}
+        </div>
 
         <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-slate-100/90">
           {item.bullets.map((b, idx) => (
