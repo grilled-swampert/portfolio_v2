@@ -4,6 +4,7 @@ import Introduction from "../components/Introduction";
 import Clickables01 from "../components/Clickables01";
 import History from "../components/History";
 import FooterBar from "../components/FooterBar";
+import ProjectSection from "../components/ProjectSection";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
         <Introduction />
         <Clickables01 />
         <History />
+        <ProjectSection />
       </main>
       <FooterBar />
     </div>

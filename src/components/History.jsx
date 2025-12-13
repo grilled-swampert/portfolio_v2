@@ -132,7 +132,7 @@ export default function History() {
   const data = tab === "work" ? workData : eduData;
 
   return (
-    <div className="mx-auto w-full max-w-3xl rounded-2xl bg-zinc-950 p-4 sm:p-6">
+    <div className="mx-auto w-full max-w-4xl rounded-2xl bg-zinc-950 p-4 sm:p-6">
       <SegmentedTabs tab={tab} setTab={setTab} />
 
       <AnimatePresence mode="wait">

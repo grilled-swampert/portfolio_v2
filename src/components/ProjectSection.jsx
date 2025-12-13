@@ -4,7 +4,6 @@ import {
   CodeBracketIcon,
   ArrowTopRightOnSquareIcon,
 } from "@heroicons/react/24/solid";
-import Navbar from "../components/Navbar";
 
 const projects = [
   {
@@ -131,9 +130,7 @@ const ProjectCard = ({ p }) => {
                 <Avatar key={a} label={a} />
               ))}
             </div>
-            <div className="text-xs text-slate-200/70">
-              {p.contributorsText}
-            </div>
+            <div className="text-xs text-slate-200/70">{p.contributorsText}</div>
           </div>
         </div>
       </div>
@@ -161,26 +158,30 @@ const ProjectCard = ({ p }) => {
 
 const ProjectSection = () => {
   return (
-    <div className=" bg-black text-white flex flex-col overflow-x-hidden">
-      <Navbar />
-      <section className="bg-transparent pt-24">
-        <div className="mx-auto w-full max-w-4xl px-4">
-          <div className="mb-6 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <h2 className="text-2xl font-semibold text-zinc-200">
-                Projects
-              </h2>
-            </div>
+    <section className="bg-transparent pt-12">
+      <div className="mx-auto w-full max-w-4xl px-4">
+        <div className="mb-6 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <h2 className="text-2xl font-semibold text-zinc-200">
+              Featured Projects
+            </h2>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {projects.map((p) => (
-              <ProjectCard key={p.name} p={p} />
-            ))}
-          </div>
+          <a
+            href="/projects"
+            className="text-sm font-medium text-pink-400 hover:text-pink-200"
+          >
+            View all →
+          </a>
         </div>
-      </section>
-    </div>
+
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {projects.map((p) => (
+            <ProjectCard key={p.name} p={p} />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 
