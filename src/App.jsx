@@ -13,6 +13,7 @@ const App = () => {
   const [followerPos, setFollowerPos] = useState({ x: 0, y: 0 });
   const [isMoving, setIsMoving] = useState(false);
   const [facingLeft, setFacingLeft] = useState(false);
+
   const followerRef = useRef({ x: 0, y: 0 });
   const prevXRef = useRef(0);
   const rafRef = useRef();
@@ -21,11 +22,9 @@ const App = () => {
     const handleMouseMove = (e) => {
       setMousePos({ x: e.clientX, y: e.clientY });
 
-      if (e.clientX < prevXRef.current) {
-        setFacingLeft(true);
-      } else if (e.clientX > prevXRef.current) {
-        setFacingLeft(false);
-      }
+      if (e.clientX < prevXRef.current) setFacingLeft(true);
+      else if (e.clientX > prevXRef.current) setFacingLeft(false);
+
       prevXRef.current = e.clientX;
     };
 
@@ -58,21 +57,19 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <style>{`body { cursor: none; }`}</style>
+      {/* Apply cursor-none globally by wrapping the app */}
+      <div className="min-h-screen cursor-none bg-black text-white">
+        {/* Custom cursor dot */}
+        <div
+          className="fixed z-[9998] h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white pointer-events-none"
+          style={{
+            left: `${mousePos.x}px`,
+            top: `${mousePos.y}px`,
+          }}
+        />
 
-      {/* Custom cursor */}
-      <div
-        className="fixed pointer-events-none z-[9998] bg-white rounded-full"
-        style={{
-          left: `${mousePos.x}px`,
-          top: `${mousePos.y}px`,
-          transform: `translate(-50%, -50%)`,
-          width: "20px",
-          height: "20px",
-        }}
-      />
-
-      <div className="h-screen flex items-center justify-center bg-black text-white text-4xl">
+        {/* Routes area */}
+        <div className="flex items-center justify-center text-4xl">
           <Routes>
             <Route path="*" element={<Home />} />
             <Route path="/privacy" element={<Privacy />} />
@@ -80,30 +77,23 @@ const App = () => {
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
-      </div>
+        </div>
 
-      <div className="h-screen">meow</div>
-
-      {/* Character follower */}
-      <div
-        className="fixed pointer-events-none z-[9999]"
-        style={{
-          left: `${followerPos.x}px`,
-          top: `${followerPos.y}px`,
-          transform: `translate(-50%, -50%) scaleX(${facingLeft ? 1 : -1})`,
-          width: "80px",
-          height: "80px",
-        }}
-      >
-        <img
-          src={isMoving ? walkingGif : idlePng}
-          alt="Among Us Crewmate"
+        {/* Character follower */}
+        <div
+          className="fixed z-[9999] h-20 w-20 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
           style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "contain",
+            left: `${followerPos.x}px`,
+            top: `${followerPos.y}px`,
+            transform: `translate(-50%, -50%) scaleX(${facingLeft ? 1 : -1})`,
           }}
-        />
+        >
+          <img
+            src={isMoving ? walkingGif : idlePng}
+            alt="Among Us Crewmate"
+            className="h-full w-full object-contain"
+          />
+        </div>
       </div>
     </BrowserRouter>
   );
