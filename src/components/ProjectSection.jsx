@@ -31,21 +31,23 @@ const projects = [
     "fork": false
   },
   {
-    "name": "Mainmumbaihacks",
-    "repoLabel": "grilled-swampert / MainMumbaiHacks",
-    "tagline": "No description provided.",
-    "stars": 0,
-    "contributorsText": "grilled-swampert",
-    "description": "No description provided.",
-    "tags": [],
-    "previewImage": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1600&auto=format&fit=crop",
-    "githubUrl": "https://github.com/grilled-swampert/MainMumbaiHacks",
-    "liveUrl": null,
-    "avatars": [
-      "G"
-    ],
-    "private": false,
-    "fork": true
+    name: "Credence - Fact Checking System",
+    repoLabel: "grilled-swampert / MainMumbaiHacks",
+    tagline:
+      "Hackathon project submission for Mumbai-based coding competition.",
+    stars: 0,
+    contributorsText: "grilled-swampert",
+    description:
+      "an end-to-end AI-powered fact-checking platform that verifies user claims via multi-agent reasoning, semantic retrieval, and transparent evidence-based reports.",
+    tags: ["FastAPI", "LangChain", "Groq", "ReactJS", "ELK"],
+    previewImage:
+      "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1600&auto=format&fit=crop",
+    githubUrl: "https://github.com/grilled-swampert/MainMumbaiHacks",
+    liveUrl: null,
+    avatars: ["G"],
+    private: false,
+    fork: true,
+    special: true,
   },
 ];
 
