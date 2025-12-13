@@ -7,38 +7,45 @@ import {
 
 const projects = [
   {
-    name: "Anubis",
-    repoLabel: "TecharoHQ / anubis",
-    tagline: "Weighs the soul of incoming HTTP requests to stop AI crawlers",
-    stars: 14732,
-    contributorsText: "146 Contributors",
-    description:
-      "Weighs the soul of incoming HTTP requests using proof-of-work and stop AI crawlers and other malicious bots.",
-    tags: ["golang", "security", "ai", "anti-bot", "defense", "proof-of-work"],
-
-    // NEW
-    previewImage:
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1600&auto=format&fit=crop",
-    githubUrl: "https://github.com/TecharoHQ/anubis",
-    liveUrl: null,
-    avatars: ["A", "B", "C", "D"],
+    "name": "Ecommerce Microservices",
+    "repoLabel": "grilled-swampert / ecommerce-microservices",
+    "tagline": "A distributed microservices architecture for e-commerce operations with Kubernetes orchestration.",
+    "stars": 0,
+    "contributorsText": "grilled-swampert",
+    "description": "A distributed microservices architecture for e-commerce operations with Kubernetes orchestration.",
+    "tags": [
+      "docker",
+      "grafana-dashboard",
+      "javascript",
+      "kuberenetes",
+      "microservices",
+      "prometheus"
+    ],
+    "previewImage": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1600&auto=format&fit=crop",
+    "githubUrl": "https://github.com/grilled-swampert/ecommerce-microservices",
+    "liveUrl": null,
+    "avatars": [
+      "G"
+    ],
+    "private": false,
+    "fork": false
   },
   {
-    name: "Abacus",
-    repoLabel: "jasonlovesdoggo / abacus",
-    tagline: ":abacus: A highly-scalable and stateless counting API",
-    stars: 25,
-    contributorsText: "JasonLovesDoggo",
-    description:
-      "Abacus at its core is a simple counter. However, it was designed from the ground up to be scalable, secure and easy...",
-    tags: ["golang", "gin", "docker", "redis", "analytics"],
-
-    // NEW
-    previewImage:
-      "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1600&auto=format&fit=crop",
-    githubUrl: "https://github.com/jasonlovesdoggo/abacus",
-    liveUrl: "https://example.com",
-    avatars: ["J"],
+    "name": "Mainmumbaihacks",
+    "repoLabel": "grilled-swampert / MainMumbaiHacks",
+    "tagline": "No description provided.",
+    "stars": 0,
+    "contributorsText": "grilled-swampert",
+    "description": "No description provided.",
+    "tags": [],
+    "previewImage": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1600&auto=format&fit=crop",
+    "githubUrl": "https://github.com/grilled-swampert/MainMumbaiHacks",
+    "liveUrl": null,
+    "avatars": [
+      "G"
+    ],
+    "private": false,
+    "fork": true
   },
 ];
 
@@ -100,7 +107,7 @@ const ProjectCard = ({ p }) => {
       {/* Top preview (image allowed) */}
       <div className="relative bg-slate-900">
         {/* Keep a stable ratio like the screenshot */}
-        <div className="aspect-video w-full overflow-hidden">
+        {/* <div className="aspect-video w-full overflow-hidden">
           {p.previewImage ? (
             <img
               src={p.previewImage}
@@ -111,10 +118,10 @@ const ProjectCard = ({ p }) => {
           ) : (
             <div className="h-full w-full bg-slate-900" />
           )}
-        </div>
+        </div> */}
 
         {/* Dark overlay content */}
-        <div className="absolute inset-0 px-6 py-5 text-slate-200">
+        {/* <div className="absolute inset-0 px-6 py-5 text-slate-200">
           <div className="flex items-start justify-between">
             <WindowDots />
           </div>
@@ -132,7 +139,7 @@ const ProjectCard = ({ p }) => {
             </div>
             <div className="text-xs text-slate-200/70">{p.contributorsText}</div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Bottom details */}
