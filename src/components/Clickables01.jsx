@@ -1,22 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import RightMapCard from "./RightMapCard";
 
 const NAMESPACE = "portfolio-crisplettuce.vercel.app";
 const KEY = "total-clicks";
 const BASE = "https://abacus.jasoncameron.dev";
 
-// Change these to your location
-const LAT = 18.5204; // Pune
-const LNG = 73.8567;
-
-// bbox = minLon,minLat,maxLon,maxLat  (roughly ~2-3km view; adjust delta if needed)
-const DELTA = 0.02;
-const OSM_EMBED = `https://www.openstreetmap.org/export/embed.html?bbox=${LNG - DELTA}%2C${LAT - DELTA}%2C${LNG + DELTA}%2C${LAT + DELTA}&layer=mapnik&marker=${LAT}%2C${LNG}`;
+// A per-site key for this browser
+const LOCAL_KEY = `${NAMESPACE}:${KEY}:localClicks`;
 
 export default function Clickables01() {
   const [count, setCount] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [localClicks, setLocalClicks] = useState(0);
+
+  // Initialize from localStorage (persists across refresh + browser restarts)
+  const [localClicks, setLocalClicks] = useState(() => {
+    if (typeof window === "undefined") return 0; // safety for SSR
+    const raw = window.localStorage.getItem(LOCAL_KEY);
+    const n = raw ? Number(raw) : 0;
+    return Number.isFinite(n) ? n : 0;
+  });
 
   async function refresh() {
     setLoading(true);
@@ -30,7 +32,12 @@ export default function Clickables01() {
     const res = await fetch(`${BASE}/hit/${NAMESPACE}/${KEY}`);
     const data = await res.json();
     setCount(data.value);
-    setLocalClicks((c) => c + 1);
+
+    setLocalClicks((c) => {
+      const next = c + 1;
+      window.localStorage.setItem(LOCAL_KEY, String(next));
+      return next;
+    });
   }
 
   useEffect(() => {
@@ -40,15 +47,10 @@ export default function Clickables01() {
   return (
     <div className="w-full bg-transparent p-6">
       <div className="grid grid-cols-2 gap-6 place-items-center">
-        {/* LEFT COLUMN */}
         <div className="w-full h-full flex justify-center items-center">
-          <div className="relative w-[340px] h-full rounded-3xl bg-slate-50 border border-slate-200 shadow-xl p-8 text-center justify-center items-center">
+          <div className="relative w-full h-full rounded-3xl bg-slate-50 border border-slate-200 shadow-xl p-8 text-center justify-center items-center">
             <div className="text-pink-400 text-5xl font-extrabold tracking-wide">
-              {loading
-                ? "…"
-                : typeof count === "number"
-                  ? count.toLocaleString()
-                  : "—"}
+              {loading ? "…" : typeof count === "number" ? count.toLocaleString() : "—"}
             </div>
 
             <div className="mt-6">
@@ -66,7 +68,6 @@ export default function Clickables01() {
           </div>
         </div>
 
-        {/* RIGHT COLUMN: Situated at + map */}
         <RightMapCard />
       </div>
     </div>

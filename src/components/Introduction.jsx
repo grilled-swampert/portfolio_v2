@@ -2,11 +2,11 @@ import React from "react";
 
 const Introduction = () => {
   return (
-    <section className="bg-transparent px-6 py-16 text-left text-slate-700">
+    <section className="bg-transparent px-6 py-2 text-left text-slate-700">
       <div className="mx-auto w-full max-w-5xl">
         {/* Title */}
         <h1 className="text-4xl font-semibold tracking-tight sm:text-6xl">
-          hey! I&apos;m <span className="text-pink-400">Swap</span> (IN DEVELOPMENT RIGHT NOW)
+          hey! I&apos;m <span className="text-pink-400">Swap</span>
         </h1>
         <div className="text-base mt-2">aka crisplettuce</div>
 
