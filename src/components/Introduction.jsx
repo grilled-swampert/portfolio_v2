@@ -6,7 +6,7 @@ const Introduction = () => {
       <div className="mx-auto w-full max-w-5xl">
         {/* Title */}
         <h1 className="text-4xl font-semibold tracking-tight sm:text-6xl">
-          hey! I&apos;m <span className="text-pink-400">Swap</span>
+          hey! I&apos;m <span className="text-pink-400">Swap</span> (IN DEVELOPMENT RIGHT NOW)
         </h1>
         <div className="text-base mt-2">aka crisplettuce</div>
 
