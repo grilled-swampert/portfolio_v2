@@ -115,7 +115,7 @@ const Navbar = () => {
   const handleNavItemHover = (e) => {
     gsap.to(e.currentTarget, {
       y: -2,
-      color: "#FE7743",
+      color: "#EC407A",
       duration: 0.3,
       ease: "power2.out",
     });
