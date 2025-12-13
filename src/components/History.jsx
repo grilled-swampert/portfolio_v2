@@ -9,9 +9,9 @@ const workData = [
     role: "Software Development Engineer",
     logoUrl: "https://via.placeholder.com/256",
     bullets: [
-      "Automated CI/CD pipelines on OpenShift using Postman, k6, and Cypress, reducing manual testing by 80% and improving deployment speed through pipeline caching, continuous testing, and Git-based workflows",
-      "Enhanced API functionality and backend architecture by shifting business logic to microservices, improving response times, maintainability, scalability, and code reusability, while integrating HashiCorp Vault for secure authentication and secrets management",
-      "Implemented DevSecOps, monitoring, and SRE practices by integrating Trivy, SonarQube, Prometheus, and Grafana for vulnerability scanning, static analysis, alerting, and health checks, improving MTTR, code quality, observability, and security posture",
+      "Automated OpenShift CI/CD using Postman, k6, and Cypress to cut manual regression effort by 80% and standardize release quality gates.",
+      "Refactored legacy backend components by extracting business logic into microservices to improve maintainability, enable independent deployments, and increase code reuse across services.",
+      "Improved production readiness by adding DevSecOps + observability (Trivy, SonarQube, Prometheus, Grafana) to catch vulnerabilities earlier and speed up incident detection and recovery (lower MTTR)."
     ],
   },
   {
@@ -21,7 +21,7 @@ const workData = [
     role: "Software Development Fellow",
     logoUrl: "https://via.placeholder.com/256",
     bullets: [
-      "Explored automation of CAD polyline modeling by developing a Python Blender add-on to create and manipulate geometry programmatically, demonstrating a proof-of-concept for design workflow optimization",
+      "Automated CAD polyline modeling using a Python Blender add-on to programmatically generate and manipulate geometry for workflow optimization.",
     ],
   },
 ];
