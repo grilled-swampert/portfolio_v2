@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import RightMapCard from "./RightMapCard";
 
-const NAMESPACE = "https://portfolio-crisplettuce.vercel.app/";
+const NAMESPACE = "portfolio-crisplettuce.vercel.app";
 const KEY = "total-clicks";
 const BASE = "https://abacus.jasoncameron.dev";
 
