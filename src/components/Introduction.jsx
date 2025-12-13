@@ -16,48 +16,6 @@ const Introduction = () => {
           <span className="text-pink-400">CitiusCloud LLP</span>.
           <br />
           <span className="text-zinc-400">Backend by focus, full-stack by execution.</span>
-          {/* <a
-            href="#"
-            className="text-pink-400 underline decoration-pink-300 underline-offset-4 hover:text-pink-500"
-          >
-            The United Nations
-          </a>
-          ,{" "}
-          <a
-            href="#"
-            className="text-pink-400 underline decoration-pink-300 underline-offset-4 hover:text-pink-500"
-          >
-            The Linux Foundation
-          </a>
-          ,{" "}
-          <a
-            href="#"
-            className="text-pink-400 underline decoration-pink-300 underline-offset-4 hover:text-pink-500"
-          >
-            Arch Linux
-          </a>
-          ,{" "}
-          <a
-            href="#"
-            className="text-pink-400 underline decoration-pink-300 underline-offset-4 hover:text-pink-500"
-          >
-            GNOME
-          </a>
-          ,{" "}
-          <a
-            href="#"
-            className="text-pink-400 underline decoration-pink-300 underline-offset-4 hover:text-pink-500"
-          >
-            Valve
-          </a>
-          ,{" "}
-          <a
-            href="#"
-            className="text-pink-400 underline decoration-pink-300 underline-offset-4 hover:text-pink-500"
-          >
-            FFmpeg
-          </a>{" "}
-          and many others. */}
           <br />
           <br />
           Seeing code I wrote actually help people at scale is what keeps me
@@ -69,7 +27,9 @@ const Introduction = () => {
         <div className="mt-10 flex flex-wrap items-center gap-4 text-slate-600">
           {/* Resume button (first) */}
           <a
-            href="#"
+            href="https://drive.google.com/file/d/1PYeu5RQ7j1iIo1yBSMnffvjR8B-DtpG-/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-md bg-pink-400 px-4 py-2 text-sm font-medium text-white hover:bg-pink-500"
           >
             Resume
@@ -77,7 +37,9 @@ const Introduction = () => {
 
           {/* Icon links */}
           <a
-            href="#"
+            href="https://github.com/grilled-swampert"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="GitHub"
             title="GitHub"
             className="hover:text-slate-800"
@@ -94,7 +56,9 @@ const Introduction = () => {
           </a>
 
           <a
-            href="#"
+            href="https://www.linkedin.com/in/swapnil-ranadive-crispy/"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="LinkedIn"
             title="LinkedIn"
             className="hover:text-slate-800"
@@ -110,32 +74,20 @@ const Introduction = () => {
             </svg>
           </a>
 
-          <a href="#" aria-label="X" title="X" className="hover:text-slate-800">
-            {/* X icon */}
-            <svg
-              viewBox="0 0 24 24"
-              className="h-5 w-5"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path d="M18.9 2H22l-6.77 7.73L23.2 22h-6.3l-4.94-6.84L5.98 22H2.9l7.25-8.3L.8 2h6.46l4.47 6.3L18.9 2zm-1.1 18h1.75L6.2 3.9H4.37L17.8 20z" />
-            </svg>
-          </a>
-
           <a
-            href="#"
-            aria-label="More about me"
-            title="More about me"
+            href="mailto:swapnil.ranadive101@gmail.com"
+            aria-label="Email"
+            title="Email"
             className="hover:text-slate-800"
           >
-            {/* Arrow icon */}
+            {/* Mail icon */}
             <svg
               viewBox="0 0 24 24"
               className="h-5 w-5"
               fill="currentColor"
               aria-hidden="true"
             >
-              <path d="M13.5 5l7 7-7 7-1.4-1.4 4.6-4.6H3v-2h13.7l-4.6-4.6L13.5 5z" />
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
             </svg>
           </a>
         </div>

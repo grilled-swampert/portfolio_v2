@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import emailjs from "emailjs-com";
 import Navbar from "../components/Navbar";
+import FooterBar from "../components/FooterBar";
 
 const ContactLayout = () => {
   const [formData, setFormData] = useState({
@@ -260,6 +261,7 @@ const ContactLayout = () => {
           </div>
         </div>
       </div>
+      <FooterBar />
     </div>
   );
 };

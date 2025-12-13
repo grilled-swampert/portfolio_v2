@@ -5,6 +5,7 @@ import {
   ArrowTopRightOnSquareIcon,
 } from "@heroicons/react/24/solid";
 import Navbar from "../components/Navbar";
+import FooterBar from "../components/FooterBar";
 
 const projects = [
   {
@@ -329,6 +330,7 @@ const ProjectSection = () => {
           </div>
         </div>
       </section>
+      <FooterBar />
     </div>
   );
 };
