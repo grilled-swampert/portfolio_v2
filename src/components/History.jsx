@@ -3,49 +3,25 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const workData = [
   {
-    id: "dbs",
-    range: "Jul 2023 - Present",
-    org: "DBS Bank",
-    role: "Graduate Associate (SEED Programme)",
-    logoUrl:
-      "https://upload.wikimedia.org/wikipedia/en/thumb/6/63/DBS_Bank_logo.svg/256px-DBS_Bank_logo.svg.png",
+    id: "citiuscloud",
+    range: "May 2025 - Present",
+    org: "CitiusCloud Services LLP",
+    role: "Software Development Engineer",
+    logoUrl: "https://via.placeholder.com/256",
     bullets: [
-      "Developed the Java backend for a bank account servicing process with multiple channel integrations using Activiti workflow",
-      "Built a custom database migration tool using Python and MariaDB and facilitated the migration of 1000+ processes from a vendor platform",
+      "Automated CI/CD pipelines on OpenShift using Postman, k6, and Cypress, reducing manual testing by 80% and improving deployment speed through pipeline caching, continuous testing, and Git-based workflows",
+      "Enhanced API functionality and backend architecture by shifting business logic to microservices, improving response times, maintainability, scalability, and code reusability, while integrating HashiCorp Vault for secure authentication and secrets management",
+      "Implemented DevSecOps, monitoring, and SRE practices by integrating Trivy, SonarQube, Prometheus, and Grafana for vulnerability scanning, static analysis, alerting, and health checks, improving MTTR, code quality, observability, and security posture",
     ],
   },
   {
-    id: "sit",
-    range: "Apr 2023 - Jun 2023",
-    org: "Singapore Institute of Technology",
-    role: "Software Developer (Contract)",
-    logoUrl:
-      "https://upload.wikimedia.org/wikipedia/en/thumb/7/7b/Singapore_Institute_of_Technology_logo.svg/256px-Singapore_Institute_of_Technology_logo.svg.png",
+    id: "fossee",
+    range: "Mar 2024 - Jun 2024",
+    org: "FOSSEE, IIT Bombay",
+    role: "Software Development Fellow",
+    logoUrl: "https://via.placeholder.com/256",
     bullets: [
-      "Built NFTVue, an NFT gallery website that allows students to connect their crypto wallets to view and verify their school event-issued NFTs",
-    ],
-  },
-  {
-    id: "dbs",
-    range: "Jul 2023 - Present",
-    org: "DBS Bank",
-    role: "Graduate Associate (SEED Programme)",
-    logoUrl:
-      "https://upload.wikimedia.org/wikipedia/en/thumb/6/63/DBS_Bank_logo.svg/256px-DBS_Bank_logo.svg.png",
-    bullets: [
-      "Developed the Java backend for a bank account servicing process with multiple channel integrations using Activiti workflow",
-      "Built a custom database migration tool using Python and MariaDB and facilitated the migration of 1000+ processes from a vendor platform",
-    ],
-  },
-  {
-    id: "sit",
-    range: "Apr 2023 - Jun 2023",
-    org: "Singapore Institute of Technology",
-    role: "Software Developer (Contract)",
-    logoUrl:
-      "https://upload.wikimedia.org/wikipedia/en/thumb/7/7b/Singapore_Institute_of_Technology_logo.svg/256px-Singapore_Institute_of_Technology_logo.svg.png",
-    bullets: [
-      "Built NFTVue, an NFT gallery website that allows students to connect their crypto wallets to view and verify their school event-issued NFTs",
+      "Explored automation of CAD polyline modeling by developing a Python Blender add-on to create and manipulate geometry programmatically, demonstrating a proof-of-concept for design workflow optimization",
     ],
   },
 ];
@@ -61,6 +37,7 @@ const eduData = [
     bullets: ["Pursuing a Honors in Data Science and Analytics (CGPA: 9.00 / 10)", ],
   },
 ];
+
 
 function SegmentedTabs({ tab, setTab }) {
   return (
