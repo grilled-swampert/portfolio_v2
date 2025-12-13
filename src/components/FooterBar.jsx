@@ -25,8 +25,8 @@ export default function FooterBar() {
 
         <div className="flex items-center gap-4">
           <span className="inline-flex items-center gap-2 whitespace-nowrap">
-            <FiSun className="opacity-70" />
-            <span className="opacity-85 text-white ">8:37:45</span>
+            {/* <FiSun className="opacity-70" /> */}
+            {/* <span className="opacity-85 text-white ">8:37:45</span> */}
           </span>
 
           <span className="h-4 w-px bg-white" />

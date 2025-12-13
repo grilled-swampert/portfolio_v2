@@ -15,7 +15,7 @@ const Introduction = () => {
           I&apos;m currently working as a SWE Intern @{" "}
           <span className="text-pink-400">CitiusCloud LLP</span>.
           <br />
-          <span className="text-zinc-400">Backend by focus, full-stack by execution.</span>.
+          <span className="text-zinc-400">Backend by focus, full-stack by execution.</span>
           {/* <a
             href="#"
             className="text-pink-400 underline decoration-pink-300 underline-offset-4 hover:text-pink-500"

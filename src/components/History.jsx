@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import CitiusCloudLogo from "../assets/citiuscloud.png";
+import FosseeLogo from "../assets/fossee.png";
 
 const workData = [
   {
@@ -7,7 +9,7 @@ const workData = [
     range: "May 2025 - Present",
     org: "CitiusCloud Services LLP",
     role: "Software Development Engineer",
-    logoUrl: "https://via.placeholder.com/256",
+    logoUrl: CitiusCloudLogo,
     bullets: [
       "Automated OpenShift CI/CD using Postman, k6, and Cypress to cut manual regression effort by 80% and standardize release quality gates.",
       "Refactored legacy backend components by extracting business logic into microservices to improve maintainability, enable independent deployments, and increase code reuse across services.",
@@ -19,7 +21,7 @@ const workData = [
     range: "Mar 2024 - Jun 2024",
     org: "FOSSEE, IIT Bombay",
     role: "Software Development Fellow",
-    logoUrl: "https://via.placeholder.com/256",
+    logoUrl: FosseeLogo,
     bullets: [
       "Automated CAD polyline modeling using a Python Blender add-on to programmatically generate and manipulate geometry for workflow optimization.",
     ],
@@ -88,7 +90,7 @@ function TimelineItem({ item, isLast }) {
         <img
           src={item.logoUrl}
           alt={`${item.org} logo`}
-          className="h-full w-full object-cover"
+          className="h-full w-full object-contain object-center"
         />
       </div>
 
