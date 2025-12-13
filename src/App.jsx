@@ -7,6 +7,7 @@ import Privacy from "./pages/Privacy";
 import Blog from "./pages/Blog";
 import Projects from "./pages/Projects";
 import { Contact } from "lucide-react";
+import ContactLayout from "./pages/ContactLayout";
 
 const App = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -75,7 +76,7 @@ const App = () => {
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/projects" element={<Projects />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/contact" element={<ContactLayout />} />
           </Routes>
         </div>
 
