@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import RightMapCard from "./RightMapCard";
 
 const NAMESPACE = "portfolio-crisplettuce.vercel.app";
@@ -45,29 +45,39 @@ export default function Clickables01() {
   }, []);
 
   return (
-    <div className="w-full bg-transparent p-6">
-      <div className="grid grid-cols-2 gap-6 place-items-center">
-        <div className="w-full h-full flex justify-center items-center">
-          <div className="relative w-full h-full rounded-3xl bg-slate-50 border border-slate-200 shadow-xl p-8 text-center justify-center items-center">
-            <div className="text-pink-400 text-5xl font-extrabold tracking-wide">
-              {loading ? "…" : typeof count === "number" ? count.toLocaleString() : "—"}
+    <div className="w-full bg-transparent px-4 sm:px-6 py-4 sm:py-6">
+      {/* Responsive Grid: 1 column mobile, 2 columns tablet+ [web:21][web:25] */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 place-items-stretch">
+        {/* Click Counter Card - Responsive Sizing */}
+        <div className="w-full h-full min-h-[280px] sm:min-h-[320px] flex justify-center items-center">
+          <div className="relative w-full h-full rounded-2xl sm:rounded-3xl bg-slate-50 border border-slate-200 shadow-lg sm:shadow-xl p-6 sm:p-8 flex flex-col justify-center items-center">
+            {/* Counter Display - Responsive Typography [web:27] */}
+            <div className="text-pink-400 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-wide">
+              {loading
+                ? "…"
+                : typeof count === "number"
+                ? count.toLocaleString()
+                : "—"}
             </div>
 
-            <div className="mt-6">
+            {/* Button - Responsive Sizing [web:26][web:29] */}
+            <div className="mt-4 sm:mt-6">
               <button
                 onClick={onClickCount}
-                className="px-10 py-3 rounded-2xl bg-pink-400 text-3xl text-white font-extrabold tracking-widest shadow-lg shadow-pink-600 hover:bg-pink-500 active:scale-[0.99] transition"
+                className="px-6 py-2.5 sm:px-10 sm:py-3 rounded-xl sm:rounded-2xl bg-pink-400 text-xl sm:text-2xl lg:text-3xl text-white font-extrabold tracking-wide sm:tracking-widest shadow-md sm:shadow-lg shadow-pink-600/50 hover:bg-pink-500 active:scale-[0.98] transition-all duration-200 w-full sm:w-auto"
               >
                 CLICK ME
               </button>
             </div>
 
-            <div className="mt-6 text-xs text-slate-500 tracking-widest">
-              you&apos;ve clicked {localClicks} times
+            {/* Local Counter - Responsive Text [web:27] */}
+            <div className="mt-4 sm:mt-6 text-xs sm:text-xs text-slate-500 tracking-wide sm:tracking-widest">
+              you&apos;ve clicked {localClicks} {localClicks === 1 ? "time" : "times"}
             </div>
           </div>
         </div>
 
+        {/* Right Map Card - Inherits responsive grid behavior [web:21][web:30] */}
         <RightMapCard />
       </div>
     </div>

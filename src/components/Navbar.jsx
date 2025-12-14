@@ -21,7 +21,6 @@ async function getRandomWord() {
   const res = await fetch(RANDOM_WORD_URL, {
     headers: { "X-Api-Key": API_NINJAS_KEY },
   });
-  console.log(res);
   if (!res.ok) throw new Error(`RandomWord API failed: ${res.status}`);
   const data = await res.json();
   return data.word;
@@ -44,11 +43,14 @@ async function getDefinition(word) {
 const Navbar = () => {
   const navRef = useRef(null);
   const navItemsRef = useRef([]);
+  const mobileMenuRef = useRef(null);
+  const hamburgerRef = useRef(null);
+
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
     { name: "Home", path: "/" },
     { name: "Projects", path: "/projects" },
-    // { name: "Blog", path: "/blog" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -63,8 +65,6 @@ const Navbar = () => {
     (async () => {
       try {
         const cached = localStorage.getItem(storageKey);
-
-        // If cached for today, reuse it; else fetch & store
         const word = cached || (await getRandomWord());
         if (!cached) localStorage.setItem(storageKey, word);
 
@@ -90,27 +90,72 @@ const Navbar = () => {
     };
   }, [storageKey]);
 
+  // GSAP matchMedia for responsive animations [web:10]
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(navRef.current, {
-        y: -100,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out",
+      const mm = gsap.matchMedia();
+
+      // Desktop animations (768px and above) [web:6]
+      mm.add("(min-width: 768px)", () => {
+        gsap.from(navRef.current, {
+          y: -100,
+          opacity: 0,
+          duration: 1,
+          ease: "power3.out",
+        });
+
+        gsap.from(navItemsRef.current, {
+          opacity: 0,
+          y: -20,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: "back.out(1.7)",
+          delay: 0.3,
+        });
       });
 
-      gsap.from(navItemsRef.current, {
-        opacity: 0,
-        y: -20,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: "back.out(1.7)",
-        delay: 0.3,
+      // Mobile animations (below 768px)
+      mm.add("(max-width: 767px)", () => {
+        gsap.from(navRef.current, {
+          y: -50,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power2.out",
+        });
       });
     }, navRef);
 
     return () => ctx.revert();
   }, []);
+
+  // Mobile menu animation [web:1][web:2]
+  useEffect(() => {
+    if (!mobileMenuRef.current) return;
+
+    if (isMobileMenuOpen) {
+      gsap.to(mobileMenuRef.current, {
+        height: "auto",
+        opacity: 1,
+        duration: 0.4,
+        ease: "power2.out",
+      });
+
+      gsap.from(navItemsRef.current, {
+        opacity: 0,
+        x: -20,
+        duration: 0.3,
+        stagger: 0.08,
+        ease: "power2.out",
+      });
+    } else {
+      gsap.to(mobileMenuRef.current, {
+        height: 0,
+        opacity: 0,
+        duration: 0.3,
+        ease: "power2.in",
+      });
+    }
+  }, [isMobileMenuOpen]);
 
   const handleNavItemHover = (e) => {
     gsap.to(e.currentTarget, {
@@ -130,49 +175,61 @@ const Navbar = () => {
     });
   };
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleMobileLinkClick = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
-    <>
-      <nav
-        ref={navRef}
-        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-transparent"
-      >
-        <div className="max-w-4xl mx-auto px-8 py-6 flex items-center justify-between">
-          <div className="relative group justify-center items-center flex flex-col">
+    <nav
+      ref={navRef}
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-transparent"
+    >
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+        {/* Desktop and Mobile Header [web:3] */}
+        <div className="flex items-center justify-between">
+          {/* Logo with Tooltip */}
+          <div className="relative group flex flex-col justify-center items-center">
             <a
               href="#home"
-              className="text-xl font-semibold text-white tracking-tight no-underline"
+              className="text-lg sm:text-xl font-semibold text-white tracking-tight no-underline"
               aria-describedby="logo-tooltip"
             >
               {logoWord}
             </a>
 
-            {/* Tooltip bubble */}
+            {/* Tooltip - hidden on mobile [web:9] */}
             <div
               id="logo-tooltip"
               role="tooltip"
               className="
-      pointer-events-none absolute left-1/2 top-full z-50 mt-2 w-72 -translate-x-1/2
-      origin-top scale-0 opacity-0
-      rounded-md bg-black/80 px-3 py-2 text-xs text-white
-      shadow-lg ring-1 ring-white/10 backdrop-blur
-      transition-all duration-150
-      group-hover:scale-100 group-hover:opacity-100
-    "
+                pointer-events-none absolute left-1/2 top-full z-50 mt-2 
+                w-64 sm:w-72 -translate-x-1/2
+                origin-top scale-0 opacity-0
+                rounded-md bg-black/80 px-3 py-2 text-xs text-white
+                shadow-lg ring-1 ring-white/10 backdrop-blur
+                transition-all duration-150
+                hidden sm:group-hover:scale-100 sm:group-hover:opacity-100 sm:block
+              "
             >
               {logoTooltip}
             </div>
 
-            {/* Tooltip arrow */}
             <div
               className="
-      pointer-events-none absolute left-1/2 top-full z-50 mt-1 h-2 w-2 -translate-x-1/2 rotate-45
-      scale-0 bg-black/80 ring-1 ring-white/10 transition-all duration-150
-      group-hover:scale-100
-    "
+                pointer-events-none absolute left-1/2 top-full z-50 mt-1 
+                h-2 w-2 -translate-x-1/2 rotate-45
+                scale-0 bg-black/80 ring-1 ring-white/10 transition-all duration-150
+                hidden sm:group-hover:scale-100 sm:block
+              "
             />
           </div>
 
-          <div className="flex items-center gap-12">
+          {/* Desktop Navigation - hidden on mobile [web:6] */}
+          <div className="hidden md:flex items-center gap-8 lg:gap-12">
             {navItems.map((item, index) => (
               <a
                 key={index}
@@ -186,9 +243,54 @@ const Navbar = () => {
               </a>
             ))}
           </div>
+
+          {/* Hamburger Button - visible only on mobile [web:1][web:2] */}
+          <button
+            ref={hamburgerRef}
+            onClick={toggleMobileMenu}
+            className="md:hidden flex flex-col justify-center items-center w-8 h-8 focus:outline-none"
+            aria-label="Toggle menu"
+            aria-expanded={isMobileMenuOpen}
+          >
+            <span
+              className={`bg-white block h-0.5 w-6 rounded-sm transition-all duration-300 ease-out ${
+                isMobileMenuOpen ? "rotate-45 translate-y-1.5" : "-translate-y-1"
+              }`}
+            ></span>
+            <span
+              className={`bg-white block h-0.5 w-6 rounded-sm my-1 transition-all duration-300 ease-out ${
+                isMobileMenuOpen ? "opacity-0" : "opacity-100"
+              }`}
+            ></span>
+            <span
+              className={`bg-white block h-0.5 w-6 rounded-sm transition-all duration-300 ease-out ${
+                isMobileMenuOpen ? "-rotate-45 -translate-y-1.5" : "translate-y-1"
+              }`}
+            ></span>
+          </button>
         </div>
-      </nav>
-    </>
+
+        {/* Mobile Menu [web:1][web:2] */}
+        <div
+          ref={mobileMenuRef}
+          className="md:hidden overflow-hidden h-0 opacity-0"
+        >
+          <div className="pt-4 pb-2 space-y-1">
+            {navItems.map((item, index) => (
+              <a
+                key={index}
+                href={item.path}
+                ref={(el) => (navItemsRef.current[index] = el)}
+                onClick={handleMobileLinkClick}
+                className="block px-4 py-3 text-white text-base font-medium tracking-wide uppercase hover:bg-white/10 rounded-md transition-colors"
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </nav>
   );
 };
 
