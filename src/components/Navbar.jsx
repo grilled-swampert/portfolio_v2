@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 
 // Random word (needs key) [web:1]
 const RANDOM_WORD_URL = "https://api.api-ninjas.com/v1/randomword";
-const API_NINJAS_KEY = import.meta?.env?.VITE_API_NINJAS_KEY;
+const API_NINJAS_KEY = import.meta.env.VITE_API_NINJAS_KEY;
 
 // Definitions (no key) [web:12]
 const DICT_BASE = "https://api.dictionaryapi.dev/api/v2/entries/en/";
