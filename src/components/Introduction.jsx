@@ -305,8 +305,8 @@ function drawBomb(ctx, bomb, now) {
 
 // ─── Renderer ────────────────────────────────────────────────────────────────
 
-const CHAR_COLORS = { rest: "#2a2420", shrapnel: "#c0440a", reassembling: "#6b7c5e" };
-const BG_COLOR = "#f5f0e8";
+const CHAR_COLORS = { rest: "#ffffff", shrapnel: "#c0440a", reassembling: "#6b7c5e" };
+const BG_COLOR = "#1a1a1a";
 const SPARK_COLORS = ["#ffcc00", "#ff8800", "#ff4400", "#ffffff", "#ffaa22"];
 
 function pushDetonationSparks(sparks, bx, by, count) {
@@ -359,7 +359,8 @@ function updateSparks(sparks, dt) {
 
 const FONT_SIZE = 20;
 const LINE_HEIGHT = 32;
-const PADDING = 40;
+const X_PADDING = 30;
+const Y_PADDING = 30;
 
 // The intro text rendered on canvas
 const INTRO_TEXT = `I'm currently working as a SWE Intern @ CitiusCloud LLP.
@@ -397,9 +398,9 @@ const Introduction = () => {
     const s = stateRef.current;
     s.dpr = window.devicePixelRatio || 1;
 
-    const maxWidth = Math.min(canvas.offsetWidth - PADDING * 2, 640);
-    const offsetX = PADDING;
-    const offsetY = PADDING;
+    const maxWidth = Math.min(canvas.offsetWidth - X_PADDING * 2, 640);
+    const offsetX = X_PADDING;
+    const offsetY = Y_PADDING;
 
     const { chars, totalHeight } = computeCharPositions(
       INTRO_TEXT,
@@ -410,7 +411,7 @@ const Introduction = () => {
       offsetY
     );
 
-    s.canvasHeight = Math.max(300, totalHeight + offsetY + PADDING);
+    s.canvasHeight = Math.max(300, totalHeight + offsetY + Y_PADDING);
 
     // Resize canvas
     canvas.width = canvas.offsetWidth * s.dpr;
@@ -452,6 +453,7 @@ const Introduction = () => {
     rc.clearRect(0, 0, canvasW, canvasH);
     rc.font = getFont(dpr);
     rc.textBaseline = "top";
+    rc.textAlign = "left";
     rc.fillStyle = CHAR_COLORS.rest;
 
     for (const p of particles) {
@@ -528,7 +530,7 @@ const Introduction = () => {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // Paper lines
-    ctx.strokeStyle = "#ebe5d8";
+    ctx.strokeStyle = "#1a1a1a";
     ctx.lineWidth = 1;
     const lineSpacing = 28 * dpr;
     for (let y = lineSpacing; y < canvas.height; y += lineSpacing) {
@@ -608,7 +610,10 @@ const Introduction = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    layoutText();
+    // Wait for fonts to load before laying out text
+    document.fonts.ready.then(() => {
+      layoutText();
+    });
 
     const handleClick = (e) => {
       const rect = canvas.getBoundingClientRect();
@@ -618,7 +623,9 @@ const Introduction = () => {
     };
 
     const handleResize = () => {
-      layoutText();
+      document.fonts.ready.then(() => {
+        layoutText();
+      });
     };
 
     canvas.addEventListener("click", handleClick);
