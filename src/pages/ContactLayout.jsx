@@ -130,7 +130,7 @@ const ContactLayout = () => {
                         {method.href ? (
                           <a
                             href={method.href}
-                            className="text-white text-2xl hover:text-pink-400 transition-colors duration-200"
+                            className="text-white text-2xl hover:text-theme-400 transition-colors duration-200"
                           >
                             {method.value}
                           </a>
@@ -152,20 +152,20 @@ const ContactLayout = () => {
                     <a
                       key={index}
                       href={link.href}
-                      className="flex items-center justify-between p-4 border border-gray-200 hover:border-pink-400 transition-colors duration-200 group"
+                      className="flex items-center justify-between p-4 border border-gray-200 hover:border-theme-400 transition-colors duration-200 group"
                     >
                       <div className="flex items-center space-x-4">
                         <link.icon
                           size={20}
-                          className="group-hover:text-pink-500 transition-colors duration-200"
+                          className="group-hover:text-theme-500 transition-colors duration-200"
                         />
-                        <div className="group-hover:text-pink-500">
+                        <div className="group-hover:text-theme-500">
                           <p className="font-medium text-xl ">{link.title}</p>
                           <p className="text-sm text-gray-600">{link.label}</p>
                         </div>
                       </div>
-                      <div className="w-6 h-6 border border-gray-300 group-hover:border-pink-400 transition-colors duration-200 flex items-center justify-center">
-                        <div className="w-2 h-2 bg-gray-400 group-hover:bg-pink-400 transition-colors duration-200"></div>
+                      <div className="w-6 h-6 border border-gray-300 group-hover:border-theme-400 transition-colors duration-200 flex items-center justify-center">
+                        <div className="w-2 h-2 bg-gray-400 group-hover:bg-theme-400 transition-colors duration-200"></div>
                       </div>
                     </a>
                   ))}

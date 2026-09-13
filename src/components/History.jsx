@@ -7,7 +7,7 @@ import SomaiyaLogo from "../assets/somaiya.png";
 const workData = [
   {
     id: "collegestreet",
-    range: "Jan 2026 - Present",
+    range: "Jan 2026 - May 2026",
     org: "CollegeStreet Tech",
     role: "Applied AI Engineering Intern",
     logoUrl: CitiusCloudLogo,

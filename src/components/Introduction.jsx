@@ -643,7 +643,7 @@ const Introduction = () => {
   return (
     <section className="bg-transparent px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 text-left text-slate-700" style={{ position: "relative" }}>
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-tight">
-          hey! I&apos;m <span className="text-pink-400">Swap</span>
+          hey! I&apos;m <span className="text-theme-400">Swap</span>
         </h1>
         <div className="text-sm sm:text-base mt-2 mb-4">aka <span className="text-green-200">crisplettuce</span></div>
       {/* Canvas renders the intro text with bomb effect */}
@@ -667,7 +667,7 @@ const Introduction = () => {
               href="https://drive.google.com/file/d/1PYeu5RQ7j1iIo1yBSMnffvjR8B-DtpG-/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-md bg-pink-400 px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-medium text-white hover:bg-pink-500 transition-colors duration-200 w-2/6 xs:w-auto"
+              className="inline-flex items-center justify-center gap-2 rounded-md bg-theme-400 px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-medium text-white hover:bg-theme-500 transition-colors duration-200 w-2/6 xs:w-auto"
             >
               <svg
                 className="h-4 w-4 sm:h-5 sm:w-5"

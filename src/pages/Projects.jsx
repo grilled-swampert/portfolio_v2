@@ -231,7 +231,7 @@ const projects = [
 ];
 
 const Tag = ({ children }) => (
-  <span className="rounded-md bg-pink-200 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-slate-200">
+  <span className="rounded-md bg-theme-200 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-slate-200">
     {children}
   </span>
 );
@@ -286,7 +286,7 @@ const ProjectCard = ({ p }) => {
   return (
     <div
       className={`overflow-hidden rounded-2xl shadow-sm ring-1 ring-slate-200 ${
-        p.special ? "bg-pink-200" : "bg-white"
+        p.special ? "bg-theme-200" : "bg-white"
       }`}
     >
       {" "}

@@ -52,7 +52,7 @@ const projects = [
 ];
 
 const Tag = ({ children }) => (
-  <span className="rounded-md bg-pink-200 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-slate-200">
+  <span className="rounded-md bg-theme-200 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-slate-200">
     {children}
   </span>
 );
@@ -178,7 +178,7 @@ const ProjectSection = () => {
 
           <a
             href="/projects"
-            className="text-sm font-medium text-pink-400 hover:text-pink-200"
+            className="text-sm font-medium text-theme-400 hover:text-theme-200"
           >
             View all →
           </a>

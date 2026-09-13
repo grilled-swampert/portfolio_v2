@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useMemo, useState } from "react";
 import { gsap } from "gsap";
+import ThemePicker from "./ThemePicker";
 
 // Random word (needs key) [web:1]
 const RANDOM_WORD_URL = "https://api.api-ninjas.com/v1/randomword";
@@ -228,20 +229,23 @@ const Navbar = () => {
             />
           </div>
 
-          {/* Desktop Navigation - hidden on mobile [web:6] */}
-          <div className="hidden md:flex items-center gap-8 lg:gap-12">
-            {navItems.map((item, index) => (
-              <a
-                key={index}
-                href={item.path}
-                ref={(el) => (navItemsRef.current[index] = el)}
-                onMouseEnter={handleNavItemHover}
-                onMouseLeave={handleNavItemLeave}
-                className="text-white text-sm font-medium tracking-wide no-underline cursor-pointer transition-colors uppercase"
-              >
-                {item.name}
-              </a>
-            ))}
+          {/* Desktop Navigation and Theme Picker */}
+          <div className="hidden md:flex items-center gap-6 lg:gap-8">
+            <ThemePicker />
+            <div className="flex items-center gap-8 lg:gap-12">
+              {navItems.map((item, index) => (
+                <a
+                  key={index}
+                  href={item.path}
+                  ref={(el) => (navItemsRef.current[index] = el)}
+                  onMouseEnter={handleNavItemHover}
+                  onMouseLeave={handleNavItemLeave}
+                  className="text-white text-sm font-medium tracking-wide no-underline cursor-pointer transition-colors uppercase"
+                >
+                  {item.name}
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* Hamburger Button - visible only on mobile [web:1][web:2] */}

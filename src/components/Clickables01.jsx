@@ -52,7 +52,7 @@ export default function Clickables01() {
         <div className="w-full h-full min-h-[280px] sm:min-h-[320px] flex justify-center items-center">
           <div className="relative w-full h-full rounded-2xl sm:rounded-3xl bg-slate-50 border border-slate-200 shadow-lg sm:shadow-xl p-6 sm:p-8 flex flex-col justify-center items-center">
             {/* Counter Display - Responsive Typography [web:27] */}
-            <div className="text-pink-400 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-wide">
+            <div className="text-theme-400 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-wide">
               {loading
                 ? "…"
                 : typeof count === "number"
@@ -64,7 +64,7 @@ export default function Clickables01() {
             <div className="mt-4 sm:mt-6">
               <button
                 onClick={onClickCount}
-                className="px-6 py-2.5 sm:px-10 sm:py-3 rounded-xl sm:rounded-2xl bg-pink-400 text-xl sm:text-2xl lg:text-3xl text-white font-extrabold tracking-wide sm:tracking-widest shadow-md sm:shadow-lg shadow-pink-600/50 hover:bg-pink-500 active:scale-[0.98] transition-all duration-200 w-full sm:w-auto"
+                className="px-6 py-2.5 sm:px-10 sm:py-3 rounded-xl sm:rounded-2xl bg-theme-400 text-xl sm:text-2xl lg:text-3xl text-white font-extrabold tracking-wide sm:tracking-widest shadow-md sm:shadow-lg shadow-theme-600/50 hover:bg-theme-500 active:scale-[0.98] transition-all duration-200 w-full sm:w-auto"
               >
                 CLICK ME
               </button>

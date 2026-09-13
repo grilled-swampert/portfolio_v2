@@ -38,7 +38,7 @@ export default function FooterBar() {
 
           <div className="ml-1 flex items-center gap-2">
             <a 
-              className="grid h-8 w-8 place-items-center rounded-lg text-white hover:text-pink-400 transition-colors" 
+              className="grid h-8 w-8 place-items-center rounded-lg text-white hover:text-theme-400 transition-colors" 
               href="https://github.com/grilled-swampert" 
               target="_blank"
               rel="noopener noreferrer"
@@ -47,7 +47,7 @@ export default function FooterBar() {
               <FiGithub />
             </a>
             <a 
-              className="grid h-8 w-8 place-items-center rounded-lg text-white hover:text-pink-400 transition-colors" 
+              className="grid h-8 w-8 place-items-center rounded-lg text-white hover:text-theme-400 transition-colors" 
               href="https://www.linkedin.com/in/swapnil-ranadive-crispy/" 
               target="_blank"
               rel="noopener noreferrer"
@@ -56,7 +56,7 @@ export default function FooterBar() {
               <FiLinkedin />
             </a>
             <a 
-              className="grid h-8 w-8 place-items-center rounded-lg text-white hover:text-pink-400 transition-colors" 
+              className="grid h-8 w-8 place-items-center rounded-lg text-white hover:text-theme-400 transition-colors" 
               href="mailto:swapnil.ranadive101@gmail.com" 
               aria-label="Email"
             >
