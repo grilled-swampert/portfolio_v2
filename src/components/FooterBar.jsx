@@ -19,7 +19,7 @@ export default function FooterBar() {
     <footer className="sticky bottom-0 z-50 w-full border-t border-black/10 bg-transparent backdrop-blur">
       <div className="mx-auto flex h-14 max-w-[1400px] items-center justify-between px-4 font-mono text-sm text-white">
         <div className="flex min-w-0 items-center gap-4">
-          <span className="truncate opacity-85">© 2025 crisplettuce</span>
+          <span className="truncate opacity-85">© 2026 crisplettuce</span>
           <span className="h-4 w-px bg-white" />
         </div>
 

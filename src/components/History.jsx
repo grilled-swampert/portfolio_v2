@@ -9,10 +9,12 @@ const workData = [
     id: "collegestreet",
     range: "Jan 2026 - Present",
     org: "CollegeStreet Tech",
-    role: "AIML Engineer Intern / Quantitative Developer Intern",
+    role: "Applied AI Engineering Intern",
     logoUrl: CitiusCloudLogo,
     bullets: [
-      "to be added ahhhh"
+      "Engineered a GraphRAG FastAPI backend integrated with Neo4j and Groq API, featuring vector and BM25 search alongside Node.js-based custom report generation.",
+      "Optimized data ingestion pipeline, reducing processing time from 7 hours to under 1 hour by implementing multi-chunk LLM batching, concurrent execution, and batching Neo4j Cypher queries.",
+      "Developed multiple quantitative analysis tools including Divergence, Volatility, and OBV screeners, as well as hype detectors and custom TradingView script."
     ],
   },
   {
