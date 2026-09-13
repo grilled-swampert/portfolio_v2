@@ -363,13 +363,12 @@ const X_PADDING = 30;
 const Y_PADDING = 30;
 
 // The intro text rendered on canvas
-const INTRO_TEXT = `I'm currently working as a SWE Intern @ CitiusCloud LLP.
-Backend by focus, full-stack by execution.
+const INTRO_TEXT = `The archives of antiquity are being unsealed.
+Dust settles over the ruins of the old empire...
 
-Seeing code I wrote actually help people at scale is
-what keeps me building. Currently building AI that
-helps people articulate their ideas and share them
-at scale.`;
+A lost chapter is currently being transcribed.
+The scribes are preparing the next chronicle.
+Wait for the ravens to deliver the new scroll...`;
 
 const Introduction = () => {
   const canvasRef = useRef(null);
